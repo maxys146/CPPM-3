@@ -3,11 +3,9 @@
 
 #include <iostream>
 #include <fstream>
-// #include <windows.h> // Поддержка русской кодировки в CLion
 
 
 int main(int argc, char** argv) {
-    // SetConsoleOutputCP(CP_UTF8); // Поддержка русской кодировки в CLion
 
 #include <iostream>
 #include <fstream>
