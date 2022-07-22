@@ -7,9 +7,6 @@
 
 int main(int argc, char** argv) {
 
-#include <iostream>
-#include <fstream>
-
     std::ifstream filein("in.txt"); // открываем файл
     int sizeArr1, sizeArr2;
     filein >> sizeArr1;
