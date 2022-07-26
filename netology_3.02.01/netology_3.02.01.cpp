@@ -30,9 +30,6 @@ int main()
             months month = static_cast<months>(monthNumber);
             switch (month)
             {
-                //case :
-                //    std::cout << "До свидания\n";
-                //    break;
             case january:
                 std::cout << "Январь\n";
                 break;
