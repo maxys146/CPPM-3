@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-enum months
+enum class months
 {
     january = 1,
     february,
@@ -26,53 +26,55 @@ int main()
     while (monthNumber != 0)
     {
         std::cin >> monthNumber;
-        if (monthNumber != 0) {
+        if (monthNumber > 0 && monthNumber < 13) {
             months month = static_cast<months>(monthNumber);
             switch (month)
             {
-            case january:
+            case months::january:
                 std::cout << "Январь\n";
                 break;
-            case february:
+            case months::february:
                 std::cout << "Февраль\n";
                 break;
-            case march:
+            case months::march:
                 std::cout << "Март\n";
                 break;
-            case april:
+            case months::april:
                 std::cout << "Апрель\n";
                 break;
-            case may:
+            case months::may:
                 std::cout << "Май\n";
                 break;
-            case june:
+            case months::june:
                 std::cout << "Июнь\n";
                 break;
-            case july:
+            case months::july:
                 std::cout << "Июль\n";
                 break;
-            case august:
+            case months::august:
                 std::cout << "Август\n";
                 break;
-            case september:
+            case months::september:
                 std::cout << "Сентябрь\n";
                 break;
-            case october:
+            case months::october:
                 std::cout << "Октябрь\n";
                 break;
-            case november:
+            case months::november:
                 std::cout << "Ноябрь\n";
                 break;
-            case december:
+            case months::december:
                 std::cout << "Декабрь\n";
                 break;
             default:
-                std::cout << "Неправильный номер!\n";
+                std::cout << "Что-то пошло не так!\n";
             }
         }
-        else {
+        else if (monthNumber == 0) {
             std::cout << "До свидания\n";
             break;
+        } else {
+            std::cout << "Неправильный номер!\n";
         }
     }
     return 0;
