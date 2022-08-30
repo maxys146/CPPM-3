@@ -3,28 +3,21 @@
 
 #include <iostream>
 
-struct bankAccount {
-    int accountNumber;
-    std::string accountOwner;
-    int accountBalance;
-};
 
 struct address {
     std::string city;
-    std::string address;
+    std::string street;
     int apartment;
     int room;
     int postCode;
 };
 
-void changeCount(bankAccount* account, int newCount) {
-    account->accountBalance = newCount;
-
-}
-void printCount(bankAccount* account) {
-    std::cout << account->accountOwner << ", ваш номер счета "
-        << account->accountNumber << ", баланс "
-        << account->accountBalance << "\n";
+void printAddress(address address) {
+    std::cout << "Город: " << address.city << "\n";
+    std::cout << "Улица: " << address.street << "\n";
+    std::cout << "Номер дома: " << address.apartment << "\n";
+    std::cout << "Квартира: " << address.room << "\n";
+    std::cout << "Индекс: " << address.postCode << "\n";
 }
 
 int main()
@@ -32,21 +25,16 @@ int main()
     setlocale(LC_ALL, "Russian");
 
 
-    int newCount;
-    bankAccount account;
+    address address1;
+    address1.city = "Москва";
+    address1.street = "Арбат";
+    address1.apartment = 12;
+    address1.room = 8;
+    address1.postCode = 123456;
+    printAddress(address1);
+    //std::cout << address1.city;
+    return 0;
 
-    std::cout << "Введите номер счета: ";
-    std::cin >> account.accountNumber;
-    std::cout << "Введите имя владельца: ";
-    std::cin >> account.accountOwner;
-    std::cout << "Введите текущий баланс: ";
-    std::cin >> account.accountBalance;
-    printCount(&account);
-
-    std::cout << "Введите новый баланс: ";
-    std::cin >> newCount;
-    changeCount(&account, newCount);
-    printCount(&account);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
