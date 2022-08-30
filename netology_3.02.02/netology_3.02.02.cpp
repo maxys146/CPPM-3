@@ -13,10 +13,10 @@ void changeCount(bankAccount* account, int newCount) {
     account->accountBalance = newCount;
 
 }
-void printCount(bankAccount* account) {
-    std::cout << account->accountOwner << ", ваш номер счета " 
-        << account->accountNumber << ", баланс " 
-        << account->accountBalance << "\n";
+void printCount(bankAccount account) {
+    std::cout << account.accountOwner << ", ваш номер счета " 
+        << account.accountNumber << ", баланс " 
+        << account.accountBalance << "\n";
 }
 
 int main()
@@ -33,12 +33,12 @@ int main()
     std::cin >> account.accountOwner;
     std::cout << "Введите текущий баланс: ";
     std::cin >> account.accountBalance;
-    printCount(&account);
+    printCount(account);
 
     std::cout << "Введите новый баланс: ";
     std::cin >> newCount;
     changeCount(&account, newCount);
-    printCount(&account);
+    printCount(account);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
