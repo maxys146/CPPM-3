@@ -12,6 +12,19 @@ struct address {
     int postCode;
 };
 
+void inputAddress(address* address) {
+    std::cout << "Введите город: ";
+    std::cin >> address->city;
+    std::cout << "Введите улицу: ";
+    std::cin >> address->street;
+    std::cout << "Введите номер дома: ";
+    std::cin >> address->apartment;
+    std::cout << "Введите квартиру: ";
+    std::cin >> address->room;
+    std::cout << "Введите индекс: ";
+    std::cin >> address->postCode;
+}
+
 void printAddress(address address) {
     std::cout << "Город: " << address.city << "\n";
     std::cout << "Улица: " << address.street << "\n";
@@ -25,14 +38,10 @@ int main()
     setlocale(LC_ALL, "Russian");
 
 
-    address address1;
-    address1.city = "Москва";
-    address1.street = "Арбат";
-    address1.apartment = 12;
-    address1.room = 8;
-    address1.postCode = 123456;
-    printAddress(address1);
-    //std::cout << address1.city;
+    address customAddress;
+    inputAddress(&customAddress);
+    std::cout << std::endl;
+    printAddress(customAddress);
     return 0;
 
 }
