@@ -65,12 +65,7 @@ void print(int** numbers, int rows, int cols, int generation, int totalLiveCells
 }
 
 bool CheckCell(int x, int y, int rows, int cols) {
-    if ((x < 0) || (x > rows - 1) || (y < 0) || (y > cols - 1)) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return !((x < 0) || (x > rows - 1) || (y < 0) || (y > cols - 1));
 }
 
 int main(int argc, char** argv) {
