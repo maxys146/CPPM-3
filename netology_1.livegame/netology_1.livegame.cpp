@@ -9,6 +9,41 @@
 #include <thread>
 // #include <windows.h> // Поддержка русской кодировки в CLion
 
+bool readArray(const std::string& fileName, int** &matrix, int& rows, int& cols) {
+
+    int row = 0;
+    int col = 0;
+    const unsigned int MAX_SIZE = 100;
+
+    std::ifstream filein(fileName); // открываем файл
+    if (!filein.is_open()) {
+        return false;
+    }
+
+    if (!(filein >> rows) || !(filein >> cols)) {
+        return false;
+    }
+    if (cols == 0 || rows == 0) {
+        return false;
+    }
+    if (cols > MAX_SIZE || rows > MAX_SIZE) {
+        return false;
+    }
+
+    matrix = new int* [rows];
+    for (int i = 0; i < rows; i++) {
+        matrix[i] = new int[cols]();
+    }
+
+    // Заполняем массив оставшимися данными из файла
+    while (filein >> row && filein >> col) {
+        if (row < rows && col < cols) {
+            matrix[row][col] = 1;
+        }
+    }
+    filein.close(); // Закрываем файл
+    return true;
+}
 
 void print(int** numbers, int rows, int cols, int generation, int totalLiveCells) {
     //    std::system("clear");
@@ -41,32 +76,21 @@ bool CheckCell(int x, int y, int rows, int cols) {
 int main(int argc, char** argv) {
     // SetConsoleOutputCP(CP_UTF8); // Поддержка русской кодировки в CLion
 
-    std::ifstream filein("in.txt"); // открываем файл
     int rows, cols;
+    int** mainArray = nullptr;
     bool arrayEqual = false;
     int generation = 1;
     int totalLiveCells;
+    bool gameOver = false;
+    std::string exitMessage;
 
-
-    filein >> rows;
-    filein >> cols;
-
-    int** mainArray = new int* [rows];
-    for (int i = 0; i < rows; i++) {
-        mainArray[i] = new int[cols]();
-    }
+    readArray("in.txt", mainArray, rows, cols);
 
     int** secondArray = new int* [rows];
     for (int i = 0; i < rows; i++) {
         secondArray[i] = new int[cols]();
     }
-    // Заполняем массив оставшимися данными из файла
-    while (!filein.eof()) {
-        int x, y;
-        filein >> x;
-        filein >> y;
-        mainArray[x][y] = 1;
-    }
+
     while (!arrayEqual) {
 
         totalLiveCells = 0;
@@ -114,10 +138,16 @@ int main(int argc, char** argv) {
 
         // Условие выхода
         if (arrayEqual) {
+            exitMessage = "The world are stagnated. Game over.\n";
+            gameOver = true;
+        }
+        else if (totalLiveCells = 0) {
+            exitMessage = "All cells are dead. Game over.\n";
+            gameOver = true;
+        }
+        if (gameOver == true) {
             print(secondArray, rows, cols, generation + 1, totalLiveCells);
-
-
-            std::cout << "The world are stagnated. Game over.\n";
+            std::cout << exitMessage;
             //    Очищаем память от массива
             for (int i = 0; i < rows; i++) {
                 delete[] mainArray[i];
@@ -125,10 +155,10 @@ int main(int argc, char** argv) {
             }
             delete[] mainArray;
             delete[] secondArray;
-            filein.close();
+
             return 0;
         }
-        std::cout << "Continue game " << arrayEqual << "\n";
+        std::cout << "Continue game" << "\n";
         generation++;
 
 
@@ -140,6 +170,7 @@ int main(int argc, char** argv) {
         }
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
