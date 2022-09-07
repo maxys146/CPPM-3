@@ -158,11 +158,10 @@ int main(int argc, char** argv) {
 
 
         // Записать второй массив в первый
-        for (int a = 0; a < rows; a++) {
-            for (int b = 0; b < cols; b++) {
-                mainArray[a][b] = secondArray[a][b];
-            }
-        }
+        int ** advPointer;
+        advPointer = mainArray;
+        mainArray = secondArray;
+        secondArray = advPointer;
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
     return 0;
