@@ -3,9 +3,69 @@
 
 #include <iostream>
 
+class Counter
+{
+public:
+    void increase()
+    {
+        std::cout << "increase\n";
+    }
+    void decrease()
+    {
+        std::cout << "decrease\n";
+    }
+    int result()
+    {
+        std::cout << "result = \n";
+        return 123;
+    }
+    Counter(int startCount)
+    {
+        std::cout << "Constructor + " << startCount << "\n";
+    }
+    Counter()
+    {
+        std::cout << "Constructor Default\n";
+    }
+};
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+
+    std::string questionAnswer, input;
+    int startCount;
+
+
+    std::cout << "Вы хотите указать начальное значение счётчика? (y/n):";
+    std::cin >> questionAnswer;
+    if (questionAnswer == "yes" || questionAnswer == "Yes" || questionAnswer == "y") {
+        std::cout << "Введите начальное значение счётчика:";
+        std::cin >> startCount;
+        Counter counter(startCount);
+    }
+    else {
+        Counter counter;
+    }
+    //Counter counter(456);
+    //Counter counter;
+
+
+
+    std::cout << "Введите команду ('+', '-', '=' или 'x'):";
+    std::cin >> input;
+    if (input == "+") {
+        counter.increase();
+    }
+    else if (input == "-") {
+        counter.decrease();
+    }
+    else if (input == "=") {
+        std::cout << counter.result();
+    }
+    else if (input == "x") {
+        std::cout << "exit\n";
+    }
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
