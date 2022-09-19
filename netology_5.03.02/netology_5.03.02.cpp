@@ -36,32 +36,29 @@ int main()
     std::string questionAnswer, input;
     int startCount;
 
+    Counter* pointer;
 
     std::cout << "Вы хотите указать начальное значение счётчика? (y/n):";
     std::cin >> questionAnswer;
     if (questionAnswer == "yes" || questionAnswer == "Yes" || questionAnswer == "y") {
         std::cout << "Введите начальное значение счётчика:";
         std::cin >> startCount;
-        Counter counter(startCount);
+        pointer = new Counter(startCount);
     }
     else {
-        Counter counter;
+        pointer = new Counter;
     }
-    //Counter counter(456);
-    //Counter counter;
-
-
 
     std::cout << "Введите команду ('+', '-', '=' или 'x'):";
     std::cin >> input;
     if (input == "+") {
-        counter.increase();
+        pointer->increase();
     }
     else if (input == "-") {
-        counter.decrease();
+        pointer->decrease();
     }
     else if (input == "=") {
-        std::cout << counter.result();
+        std::cout << pointer->result();
     }
     else if (input == "x") {
         std::cout << "exit\n";
