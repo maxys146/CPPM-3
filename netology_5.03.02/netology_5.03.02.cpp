@@ -5,27 +5,28 @@
 
 class Counter
 {
+private:
+    int number;
 public:
     void increase()
     {
-        std::cout << "increase\n";
+        number = number++;
     }
     void decrease()
     {
-        std::cout << "decrease\n";
+        number = number--;
     }
     int result()
     {
-        std::cout << "result = \n";
-        return 123;
+        return number;
     }
     Counter(int startCount)
     {
-        std::cout << "Constructor + " << startCount << "\n";
+        number = startCount;
     }
     Counter()
     {
-        std::cout << "Constructor Default\n";
+        number = 1;
     }
 };
 
@@ -35,33 +36,34 @@ int main()
 
     std::string questionAnswer, input;
     int startCount;
-
-    Counter* pointer;
+    bool isActive = true;
+    bool needValue = false;
 
     std::cout << "Вы хотите указать начальное значение счётчика? (y/n):";
     std::cin >> questionAnswer;
     if (questionAnswer == "yes" || questionAnswer == "Yes" || questionAnswer == "y") {
         std::cout << "Введите начальное значение счётчика:";
         std::cin >> startCount;
-        pointer = new Counter(startCount);
+        needValue = true;
     }
-    else {
-        pointer = new Counter;
-    }
+    Counter counter = needValue ? Counter(startCount) : Counter();
 
-    std::cout << "Введите команду ('+', '-', '=' или 'x'):";
-    std::cin >> input;
-    if (input == "+") {
-        pointer->increase();
-    }
-    else if (input == "-") {
-        pointer->decrease();
-    }
-    else if (input == "=") {
-        std::cout << pointer->result();
-    }
-    else if (input == "x") {
-        std::cout << "exit\n";
+    while (isActive) {
+        std::cout << "Введите команду ('+', '-', '=' или 'x'):";
+        std::cin >> input;
+        if (input == "+") {
+            counter.increase();
+        }
+        else if (input == "-") {
+            counter.decrease();
+        }
+        else if (input == "=") {
+            std::cout << counter.result() << std::endl;
+        }
+        else if (input == "x") {
+            isActive = false;
+            std::cout << "До свиданья!\n";
+        }
     }
 }
 
