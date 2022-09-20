@@ -17,6 +17,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netology_5.03.01", "netolog
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netology_5.03.02", "netology_5.03.02\netology_5.03.02.vcxproj", "{3CA420FD-4A58-48EF-A81E-EC8F38152706}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netology_5.04.01", "netology_5.04.01\netology_5.04.01.vcxproj", "{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netology_5.04.02", "netology_5.04.02\netology_5.04.02.vcxproj", "{21E92396-AACA-4B88-B3FA-B95C1E65DADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +85,22 @@ Global
 		{3CA420FD-4A58-48EF-A81E-EC8F38152706}.Release|x64.Build.0 = Release|x64
 		{3CA420FD-4A58-48EF-A81E-EC8F38152706}.Release|x86.ActiveCfg = Release|Win32
 		{3CA420FD-4A58-48EF-A81E-EC8F38152706}.Release|x86.Build.0 = Release|Win32
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Debug|x64.ActiveCfg = Debug|x64
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Debug|x64.Build.0 = Debug|x64
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Debug|x86.Build.0 = Debug|Win32
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Release|x64.ActiveCfg = Release|x64
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Release|x64.Build.0 = Release|x64
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Release|x86.ActiveCfg = Release|Win32
+		{4F86406A-1BBE-4E0B-8F2F-B319B7A2CA3B}.Release|x86.Build.0 = Release|Win32
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Debug|x64.ActiveCfg = Debug|x64
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Debug|x64.Build.0 = Debug|x64
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Debug|x86.ActiveCfg = Debug|Win32
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Debug|x86.Build.0 = Debug|Win32
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Release|x64.ActiveCfg = Release|x64
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Release|x64.Build.0 = Release|x64
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Release|x86.ActiveCfg = Release|Win32
+		{21E92396-AACA-4B88-B3FA-B95C1E65DADB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

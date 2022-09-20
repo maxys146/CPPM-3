@@ -2,10 +2,53 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <string>
+
+class Address
+{
+private:
+    std::string city, street;
+    int apartment, room;
+public:
+    std::string get_output_address()
+    {
+        return city + ", " + street + ", " + std::to_string(apartment) + ", " + std::to_string(room);
+    }
+    Address(std::string city, std::string street, int apartment, int room) {
+        this->city = city;
+        this->street = street;
+        this->apartment = apartment;
+        this->room = room;
+    }
+};
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+
+
+    Address address("asd", "qwe", 1, 2);
+    std::cout << address.get_output_address();
+
+    return 0;
+
+    std::ifstream filein("in.txt");
+    int size;
+    std::string fileData;
+    filein >> size;
+    int* arr = new int[size];
+
+    while (!filein.eof()) {
+        filein >> fileData;
+        std::cout << fileData << std::endl;
+    }
+    //for (int i = size - 1; i >= 0; i--) {
+    //    std::cout << arr[i] << " ";
+    //}
+    filein.close();
+    delete[] arr;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
