@@ -56,7 +56,7 @@ int main()
     for (int i = sizeArr - 1; i >= 0; i--) {
         fileout << address_arr[i].get_output_address();
     }
-    fileout << std::endl;
+    fileout.close();
 
     delete[] address_arr;
 }
