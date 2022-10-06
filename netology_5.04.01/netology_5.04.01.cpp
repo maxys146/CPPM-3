@@ -13,13 +13,17 @@ private:
 public:
     std::string get_output_address()
     {
-        return city + ", " + street + ", " + std::to_string(apartment) + ", " + std::to_string(room);
+        return city + ", " + street + ", " + std::to_string(apartment) + ", " + std::to_string(room) + "\n";
     }
     Address(std::string city, std::string street, int apartment, int room) {
         this->city = city;
         this->street = street;
         this->apartment = apartment;
         this->room = room;
+    }
+    Address() {
+        this->city = this->street = "";
+        this->apartment = this->room = 0;
     }
 };
 
@@ -28,27 +32,33 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
-
-    Address address("asd", "qwe", 1, 2);
-    std::cout << address.get_output_address();
-
-    return 0;
-
+    std::string city, street;
+    int apartment, room;
     std::ifstream filein("in.txt");
-    int size;
+    int sizeArr;
     std::string fileData;
-    filein >> size;
-    int* arr = new int[size];
+    filein >> sizeArr;
 
-    while (!filein.eof()) {
-        filein >> fileData;
-        std::cout << fileData << std::endl;
+    Address *address_arr = new Address[sizeArr];
+
+    for (int i = 0; i < sizeArr; i++) {
+        filein >> city;
+        filein >> street;
+        filein >> apartment;
+        filein >> room;
+        address_arr[i] = Address(city, street, apartment, room);
     }
-    //for (int i = size - 1; i >= 0; i--) {
-    //    std::cout << arr[i] << " ";
-    //}
+
     filein.close();
-    delete[] arr;
+
+    std::ofstream fileout("out.txt");
+    fileout << sizeArr << "\n";
+    for (int i = sizeArr - 1; i >= 0; i--) {
+        fileout << address_arr[i].get_output_address();
+    }
+    fileout << std::endl;
+
+    delete[] address_arr;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
