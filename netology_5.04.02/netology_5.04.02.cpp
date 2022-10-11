@@ -47,8 +47,11 @@ int main()
     std::string city, street;
     int apartment, room;
     std::ifstream filein("in.txt");
+    if (!filein.is_open()) {
+        std::cout << "Can't open file.";
+        return 1;
+    }
     int sizeArr;
-    std::string fileData;
     filein >> sizeArr;
 
     Address* address_arr = new Address[sizeArr];
@@ -66,6 +69,10 @@ int main()
     sort(address_arr, sizeArr);
 
     std::ofstream fileout("out.txt");
+    if (!fileout.is_open()) {
+        std::cout << "Can't open file.";
+        return 1;
+    }
     fileout << sizeArr << "\n";
     for (int i = 0; i < sizeArr; i++) {
         fileout << address_arr[i].get_output_address();
