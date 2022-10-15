@@ -34,8 +34,9 @@ public:
         name = "Фигура";
         sides_count = 0;
     }
-    void print_info()
+    virtual void print_info()
     {
+        std::cout << get_name() << ": " << "\n";
         if (this->check())
         {
             std::cout << "Прорверка пройдена!!!!!!!!!!!!!!!!!!!\n";
@@ -44,6 +45,23 @@ public:
         {
             std::cout << "Прорверка не пройдена----------------\n";
         }
+        std::cout << "Количество сторон: " << get_sides_count() << "\n";
+        if (sides_count > 0)
+        {
+            std::cout << "Стороны:"
+                << " a=" << get_side_a()
+                << " b=" << get_side_b()
+                << " c=" << get_side_c()
+                << " d=" << get_side_d()
+                << "\n";
+            std::cout << "Углы:"
+                << " A=" << get_angle_A()
+                << " B=" << get_angle_B()
+                << " C=" << get_angle_C()
+                << " D=" << get_angle_D()
+                << "\n";
+        }
+        std::cout << std::endl;
     }
     int get_sides_count()
     {
@@ -104,6 +122,10 @@ public:
         this->A = A;
         this->B = B;
         this->C = C;
+    }
+    void print_info() override
+    {
+        Figure::print_info();
     }
 };
 
@@ -252,25 +274,29 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
+    Figure figure;
+    figure.print_info();
+
     Triangle triangle(10, 20, 30, 50, 60, 70);
-    print_info(triangle);
+    triangle.print_info();
+    //print_info(triangle);
     RectangularTriangle triangle_rec(10, 20, 30, 50, 60);
-    print_info(triangle_rec);
+    triangle_rec.print_info();
     UninhabitedTriangle triangle_uni(10, 20, 50, 60);
-    print_info(triangle_uni);
+    triangle_uni.print_info();
     EquilateralTriangle triangle_ecu(30);
-    print_info(triangle_ecu);
+    triangle_ecu.print_info();
 
     Quadrangle quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
-    print_info(quadrangle);
+    quadrangle.print_info();
     Rectangle rectangle(10, 20);
-    print_info(rectangle);
+    rectangle.print_info();
     Square square(20);
-    print_info(square);
+    square.print_info();
     Parallelogamm parallelogamm(20, 30, 30, 40);
-    print_info(parallelogamm);
+    parallelogamm.print_info();
     Rumb rumb(30, 30, 40);
-    print_info(rumb);
+    rumb.print_info();
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
