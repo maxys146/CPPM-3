@@ -9,11 +9,41 @@ protected:
     int a = 0, b = 0, c = 0, d = 0, A = 0, B = 0, C = 0, D = 0;
     int sides_count;
     std::string name;
+    bool check()
+    {
+        if (sides_count > 0)
+        {
+            if (sides_count == 3 && (A + B + C) == 180)
+            {
+                return true;
+            }
+            else if (sides_count == 4 && (A + B + C + D) == 360)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 public:
     Figure()
     {
         name = "Фигура";
         sides_count = 0;
+    }
+    void print_info()
+    {
+        if (this->check())
+        {
+            std::cout << "Прорверка пройдена!!!!!!!!!!!!!!!!!!!\n";
+        }
+        else
+        {
+            std::cout << "Прорверка не пройдена----------------\n";
+        }
     }
     int get_sides_count()
     {
@@ -192,24 +222,29 @@ public:
 void print_info(Figure figure)
 {
     std::cout << figure.get_name() << ": " << "\n";
-    std::cout << "Стороны:"
-        << " a=" << figure.get_side_a()
-        << " b=" << figure.get_side_b()
-        << " c=" << figure.get_side_c();
-    if (figure.get_sides_count() == 4)
+    figure.print_info();
+    std::cout << "Количество сторон: " << figure.get_sides_count() << "\n";
+    if (figure.get_sides_count() > 0)
     {
-        std::cout << " d=" << figure.get_side_d();
+        std::cout << "Стороны:"
+            << " a=" << figure.get_side_a()
+            << " b=" << figure.get_side_b()
+            << " c=" << figure.get_side_c();
+        if (figure.get_sides_count() == 4)
+        {
+            std::cout << " d=" << figure.get_side_d();
+        }
+        std::cout << "\n";
+        std::cout << "Углы:"
+            << " A=" << figure.get_angle_A()
+            << " B=" << figure.get_angle_B()
+            << " C=" << figure.get_angle_C();
+        if (figure.get_sides_count() == 4)
+        {
+            std::cout << " D=" << figure.get_angle_D();
+        }
+        std::cout << "\n\n";
     }
-    std::cout << "\n";
-    std::cout << "Углы:"
-        << " A=" << figure.get_angle_A()
-        << " B=" << figure.get_angle_B()
-        << " C=" << figure.get_angle_C();
-    if (figure.get_sides_count() == 4)
-    {
-        std::cout << " D=" << figure.get_angle_D();
-    }
-    std::cout << "\n\n";
 
 }
 
