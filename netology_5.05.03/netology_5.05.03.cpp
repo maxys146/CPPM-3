@@ -9,24 +9,16 @@ protected:
     int a = 0, b = 0, c = 0, d = 0, A = 0, B = 0, C = 0, D = 0;
     int sides_count;
     std::string name;
-    bool check()
+    virtual bool check()
     {
-        if (sides_count > 0)
+        if (sides_count == 0)
         {
-            if (sides_count == 3 && (A + B + C) == 180)
-            {
-                return true;
-            }
-            else if (sides_count == 4 && (A + B + C + D) == 360)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
-        return true;
+        else
+        {
+            return false;
+        }
     }
 public:
     Figure()
@@ -39,29 +31,17 @@ public:
         std::cout << get_name() << ": " << "\n";
         if (this->check())
         {
-            std::cout << "Прорверка пройдена!!!!!!!!!!!!!!!!!!!\n";
+            std::cout << "Правильно\n";
         }
         else
         {
-            std::cout << "Прорверка не пройдена----------------\n";
+            std::cout << "Неправильно\n";
         }
         std::cout << "Количество сторон: " << get_sides_count() << "\n";
-        if (sides_count > 0)
+        if (sides_count == 0)
         {
-            std::cout << "Стороны:"
-                << " a=" << get_side_a()
-                << " b=" << get_side_b()
-                << " c=" << get_side_c()
-                << " d=" << get_side_d()
-                << "\n";
-            std::cout << "Углы:"
-                << " A=" << get_angle_A()
-                << " B=" << get_angle_B()
-                << " C=" << get_angle_C()
-                << " D=" << get_angle_D()
-                << "\n";
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
     }
     int get_sides_count()
     {
@@ -126,6 +106,28 @@ public:
     void print_info() override
     {
         Figure::print_info();
+        std::cout << "Стороны:"
+            << " a=" << get_side_a()
+            << " b=" << get_side_b()
+            << " c=" << get_side_c()
+            << "\n";
+        std::cout << "Углы:"
+            << " A=" << get_angle_A()
+            << " B=" << get_angle_B()
+            << " C=" << get_angle_C()
+            << "\n";
+        std::cout << std::endl;
+    }
+    bool check() override
+    {
+        if ((A + B + C) == 180 && sides_count == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 };
 
@@ -142,6 +144,17 @@ public:
         this->B = B;
         this->C = 90;
     }
+    bool check() override
+    {
+        if (Triangle::check() && C == 90 && sides_count == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 };
 
 class UninhabitedTriangle : public Triangle
@@ -155,6 +168,17 @@ public:
         this->A = this->C = A;
         this->B = B;
     }
+    bool check() override
+    {
+        if (Triangle::check() && a == c && A == C && sides_count == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 };
 
 class EquilateralTriangle : public Triangle
@@ -165,6 +189,17 @@ public:
         name = "Равносторонний треугольник";
         this->a = this->b = this->c = a;
         this->A = this->B = this->C = 60;
+    }
+    bool check() override
+    {
+        if (Triangle::check() && a == b && b == c && A == B && B == C && C == 60 && sides_count == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 };
 
@@ -188,6 +223,34 @@ public:
         this->C = C;
         this->D = D;
     }
+    void print_info() override
+    {
+        Figure::print_info();
+        std::cout << "Стороны:"
+            << " a=" << get_side_a()
+            << " b=" << get_side_b()
+            << " c=" << get_side_c()
+            << " d=" << get_side_d()
+            << "\n";
+        std::cout << "Углы:"
+            << " A=" << get_angle_A()
+            << " B=" << get_angle_B()
+            << " C=" << get_angle_C()
+            << " D=" << get_angle_D()
+            << "\n";
+        std::cout << std::endl;
+    }
+    bool check() override
+    {
+        if ((A + B + C + D) == 360 && sides_count == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 };
 
 class Rectangle : public Quadrangle
@@ -203,6 +266,17 @@ public:
         this->b = this->d = b;
         this->A = this->B = this->C = this->D = 90;
     }
+    bool check() override
+    {
+        if (Quadrangle::check() && a == c && b == d && A == B && B == C && C == D && D == 90 && sides_count == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 };
 
 class Square : public Rectangle
@@ -213,6 +287,17 @@ public:
         name = "Квадрат";
         this->a = this->c = this->b = this->d = a;
         this->A = this->B = this->C = this->D = 90;
+    }
+    bool check() override
+    {
+        if (Quadrangle::check() && a == b && b == c && c == d && A == B && B == C && C == D && D == 90 && sides_count == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 };
 
@@ -227,6 +312,17 @@ public:
         this->A = this->C = A;
         this->B = this->D = B;
     }
+    bool check() override
+    {
+        if (Quadrangle::check() && a == c && b == d && A == C && B == D && sides_count == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 };
 
 class Rumb : public Rectangle
@@ -238,6 +334,17 @@ public:
         this->a = this->c = this->b = this->d = a;
         this->A = this->C = A;
         this->B = this->D = B;
+    }
+    bool check() override
+    {
+        if (Quadrangle::check() && a == b && b == c && c == d && A == C && B == D && sides_count == 4)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 };
 
@@ -279,8 +386,9 @@ int main()
 
     Triangle triangle(10, 20, 30, 50, 60, 70);
     triangle.print_info();
-    //print_info(triangle);
-    RectangularTriangle triangle_rec(10, 20, 30, 50, 60);
+    RectangularTriangle bad_triangle_rec(10, 20, 30, 50, 60);
+    bad_triangle_rec.print_info();
+    RectangularTriangle triangle_rec(10, 20, 30, 50, 40);
     triangle_rec.print_info();
     UninhabitedTriangle triangle_uni(10, 20, 50, 60);
     triangle_uni.print_info();
