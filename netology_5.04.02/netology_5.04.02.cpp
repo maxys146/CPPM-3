@@ -8,14 +8,16 @@
 class Address
 {
 private:
-    std::string street;
+    std::string city, street;
     int apartment, room;
-public:
-    std::string city;
 public:
     std::string get_output_address()
     {
         return city + ", " + street + ", " + std::to_string(apartment) + ", " + std::to_string(room) + "\n";
+    }
+    std::string get_city()
+    {
+        return city;
     }
     Address(std::string city, std::string street, int apartment, int room) {
         this->city = city;
@@ -34,7 +36,7 @@ void sort(Address* arr, int size)
     for (int i = 0; i < size; i++)
         for (int j = i + 1; j < size; j++)
         {
-            if (arr[i].city > arr[j].city)
+            if (arr[i].get_city() > arr[j].get_city())
             {
                 std::swap(arr[i], arr[j]);
             }
