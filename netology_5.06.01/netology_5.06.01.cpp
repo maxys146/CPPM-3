@@ -3,9 +3,63 @@
 
 #include <iostream>
 
+
+double calc_add(int a, int b)
+{
+    return a + b;
+}
+double calc_sub(int a, int b)
+{
+    return a - b;
+}
+double calc_mult(int a, int b)
+{
+    return a * b;
+}
+double calc_div(int a, int b)
+{
+    return a / b;
+}
+double calc_exp(int a, int b)
+{
+    return pow(a, b);
+}
+
+
+
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+
+    int a, b, action = 1;
+    std::cout << "Введите первое число:";
+    std::cin >> a;
+    std::cout << "Введите второе число:";
+    std::cin >> b;
+    std::cout << "Выберите операцию (1 - сложение, 2 вычитание, 3 - умножение, 4 - деление, 5 - возведение в степень):";
+    std::cin >> action;
+
+    switch (action)
+    {
+    case 1:
+        std::cout << a << " + " << b << " = " << calc_add(a, b) << "\n";
+        break;
+    case 2:
+        std::cout << a << " - " << b << " = " << calc_sub(a, b) << "\n";
+        break;
+    case 3:
+        std::cout << a << " * " << b << " = " << calc_mult(a, b) << "\n";
+        break;
+    case 4:
+        std::cout << a << " / " << b << " = " << calc_div(a, b) << "\n";
+        break;
+    case 5:
+        std::cout << a << " в степени " << b << " = " << calc_exp(a, b) << "\n";
+        break;
+    default:
+        break;
+    }
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
