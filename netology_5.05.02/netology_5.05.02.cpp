@@ -175,25 +175,25 @@ public:
     }
 };
 
-void print_info(Figure figure)
+void print_info(Figure* figure)
 {
-    std::cout << figure.get_name() << ": " << "\n";
+    std::cout << figure->get_name() << ": " << "\n";
     std::cout << "Стороны:"
-        << " a=" << figure.get_side_a()
-        << " b=" << figure.get_side_b()
-        << " c=" << figure.get_side_c();
-    if (figure.get_side_d() != 0)
+        << " a=" << figure->get_side_a()
+        << " b=" << figure->get_side_b()
+        << " c=" << figure->get_side_c();
+    if (figure->get_side_d() != 0)
     {
-        std::cout << " d=" << figure.get_side_d();
+        std::cout << " d=" << figure->get_side_d();
     }
     std::cout << "\n";
     std::cout << "Углы:"
-        << " A=" << figure.get_angle_A()
-        << " B=" << figure.get_angle_B()
-        << " C=" << figure.get_angle_C();
-    if (figure.get_angle_D() != 0)
+        << " A=" << figure->get_angle_A()
+        << " B=" << figure->get_angle_B()
+        << " C=" << figure->get_angle_C();
+    if (figure->get_angle_D() != 0)
     {
-        std::cout << " D=" << figure.get_angle_D();
+        std::cout << " D=" << figure->get_angle_D();
     }
     std::cout << "\n\n";
 }
@@ -202,25 +202,34 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
-    Triangle triangle(10, 20, 30, 50, 60, 70);
+    Figure* triangle = new Triangle(10, 20, 30, 50, 60, 70);
     print_info(triangle);
-    RectangularTriangle triangle_rec(10, 20, 30, 50, 60);
+    delete triangle;
+    Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 50, 60);
     print_info(triangle_rec);
-    UninhabitedTriangle triangle_uni(10, 20, 50, 60);
+    delete triangle_rec;
+    Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
     print_info(triangle_uni);
-    EquilateralTriangle triangle_ecu(30);
+    delete triangle_uni;
+    Figure* triangle_ecu = new EquilateralTriangle(30);
     print_info(triangle_ecu);
+    delete triangle_ecu;
 
-    Quadrangle quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
+    Figure* quadrangle = new Quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
     print_info(quadrangle);
-    Rectangle rectangle(10, 20);
+    delete quadrangle;
+    Figure* rectangle = new Rectangle(10, 20);
     print_info(rectangle);
-    Square square(20);
+    delete rectangle;
+    Figure* square = new Square(20);
     print_info(square);
-    Parallelogamm parallelogamm(20, 30, 30, 40);
+    delete square;
+    Figure* parallelogamm = new Parallelogamm(20, 30, 30, 40);
     print_info(parallelogamm);
-    Rumb rumb(30, 30, 40);
+    delete parallelogamm;
+    Figure* rumb = new Rumb(30, 30, 40);
     print_info(rumb);
+    delete rumb;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
