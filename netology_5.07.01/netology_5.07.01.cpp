@@ -3,9 +3,39 @@
 
 #include <iostream>
 
+#define MODE 1
+
+#ifndef MODE
+#error MODE macro must be defined
+#endif
+
+#if (MODE == 0)
+#define MESSAGE "Работаю в режиме тренировки."
+#elif (MODE == 1)
+#define MESSAGE "Работаю в боевом режиме."
+int add(int a, int b)
+{
+    return a + b;
+}
+#else
+#define MESSAGE "Неизвестный режим. Завершение работы."
+#endif
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+
+
+    std::cout << MESSAGE;
+#if (MODE == 1)
+    int a, b;
+    std::cout << "Введите число 1: ";
+    std::cin >> a;
+    std::cout << "Введите число 2: ";
+    std::cin >> b;
+    std::cout << "Результат сложения: " << add(a, b);
+#endif
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
