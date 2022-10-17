@@ -384,27 +384,37 @@ int main()
     Figure figure;
     figure.print_info();
 
-    Triangle triangle(10, 20, 30, 50, 60, 70);
-    triangle.print_info();
-    RectangularTriangle bad_triangle_rec(10, 20, 30, 50, 60);
-    bad_triangle_rec.print_info();
-    RectangularTriangle triangle_rec(10, 20, 30, 50, 40);
-    triangle_rec.print_info();
-    UninhabitedTriangle triangle_uni(10, 20, 50, 60);
-    triangle_uni.print_info();
-    EquilateralTriangle triangle_ecu(30);
-    triangle_ecu.print_info();
+    Figure* triangle = new Triangle(10, 20, 30, 50, 60, 70);
+    triangle->print_info();
+    delete triangle;
+    Figure* bad_triangle_rec = new RectangularTriangle(10, 20, 30, 50, 60);
+    bad_triangle_rec->print_info();
+    delete bad_triangle_rec;
+    Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 50, 40);
+    triangle_rec->print_info();
+    delete triangle_rec;
+    Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
+    triangle_uni->print_info();
+    delete triangle_uni;
+    Figure* triangle_ecu = new EquilateralTriangle(30);
+    triangle_ecu->print_info();
+    delete triangle_ecu;
 
-    Quadrangle quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
-    quadrangle.print_info();
-    Rectangle rectangle(10, 20);
-    rectangle.print_info();
-    Square square(20);
-    square.print_info();
-    Parallelogamm parallelogamm(20, 30, 30, 40);
-    parallelogamm.print_info();
-    Rumb rumb(30, 30, 40);
-    rumb.print_info();
+    Figure* quadrangle = new Quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
+    quadrangle->print_info();
+    delete quadrangle;
+    Figure* rectangle = new Rectangle(10, 20);
+    rectangle->print_info();
+    delete rectangle;
+    Figure* square = new Square(20);
+    square->print_info();
+    delete square;
+    Figure* parallelogamm = new Parallelogamm(20, 30, 30, 40);
+    parallelogamm->print_info();
+    delete parallelogamm;
+    Figure* rumb = new Rumb(30, 30, 40);
+    rumb->print_info();
+    delete rumb;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
