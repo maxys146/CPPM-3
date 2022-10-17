@@ -2,10 +2,43 @@
 //
 
 #include <iostream>
+#include "Counter.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+
+    std::string questionAnswer, input;
+    int startCount;
+    bool isActive = true;
+    bool needValue = false;
+
+    std::cout << "Вы хотите указать начальное значение счётчика? (y/n):";
+    std::cin >> questionAnswer;
+    if (questionAnswer == "yes" || questionAnswer == "Yes" || questionAnswer == "y") {
+        std::cout << "Введите начальное значение счётчика:";
+        std::cin >> startCount;
+        needValue = true;
+    }
+    Counter counter = needValue ? Counter(startCount) : Counter();
+
+    while (isActive) {
+        std::cout << "Введите команду ('+', '-', '=' или 'x'):";
+        std::cin >> input;
+        if (input == "+") {
+            counter.increase();
+        }
+        else if (input == "-") {
+            counter.decrease();
+        }
+        else if (input == "=") {
+            std::cout << counter.result() << std::endl;
+        }
+        else if (input == "x") {
+            isActive = false;
+            std::cout << "До свиданья!\n";
+        }
+    }
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
