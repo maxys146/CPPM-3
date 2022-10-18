@@ -1,5 +1,24 @@
 #include "Figure.h"
+#include "FigureException.h"
 
+Figure::Figure()
+{
+    name = "Треугольник";
+}
+bool Figure::check()
+{
+    if (this->sides_count != 1)
+    {
+        throw FigureException("Сторон нифига не 0");
+        std::cout << "false";
+        return false;
+    }
+    else
+    {
+        std::cout << "true";
+        return true;
+    }
+}
 std::string Figure::get_name()
 {
     return name;

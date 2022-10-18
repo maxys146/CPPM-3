@@ -13,22 +13,6 @@
 #include "Rumb.h"
 
 
-class FigureException1 : public std::exception
-{
-public:
-    FigureException1(const std::string& what) : m_what(what)
-    {
-    }
-
-    const char* what() const override
-    {
-        return m_what.c_str();
-    }
-
-protected:
-    std::string m_what;
-};
-
 class FigureException2 : public std::domain_error
 {
 public:
@@ -83,6 +67,12 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
+    Figure* figure = new Figure();
+    print_info(figure);
+
+
+
+    return 0;
     Figure* triangle = new Triangle(10, 20, 30, 50, 60, 70);
     print_info(triangle);
     delete triangle;

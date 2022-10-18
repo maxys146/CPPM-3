@@ -6,7 +6,10 @@ class Figure
 protected:
     int a = 0, b = 0, c = 0, d = 0, A = 0, B = 0, C = 0, D = 0;
     std::string name;
+    int sides_count;
+    virtual bool check();
 public:
+    Figure();
     std::string get_name();
     int get_side_a();
     int get_side_b();

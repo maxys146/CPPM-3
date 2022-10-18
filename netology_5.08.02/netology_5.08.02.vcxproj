@@ -127,29 +127,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\netology_5.06.03\EquilateralTriangle.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Figure.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Parallelogamm.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Quadrangle.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Rectangle.cpp" />
-    <ClCompile Include="..\netology_5.06.03\RectangularTriangle.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Rumb.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Square.cpp" />
-    <ClCompile Include="..\netology_5.06.03\Triangle.cpp" />
-    <ClCompile Include="..\netology_5.06.03\UninhabitedTriangle.cpp" />
+    <ClCompile Include="EquilateralTriangle.cpp" />
+    <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="Parallelogamm.cpp" />
+    <ClCompile Include="Quadrangle.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectangularTriangle.cpp" />
+    <ClCompile Include="Rumb.cpp" />
+    <ClCompile Include="Square.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="UninhabitedTriangle.cpp" />
+    <ClCompile Include="FigureException.cpp" />
     <ClCompile Include="netology_5.08.02.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\netology_5.06.03\EquilateralTriangle.h" />
-    <ClInclude Include="..\netology_5.06.03\Figure.h" />
-    <ClInclude Include="..\netology_5.06.03\Parallelogamm.h" />
-    <ClInclude Include="..\netology_5.06.03\Quadrangle.h" />
-    <ClInclude Include="..\netology_5.06.03\Rectangle.h" />
-    <ClInclude Include="..\netology_5.06.03\RectangularTriangle.h" />
-    <ClInclude Include="..\netology_5.06.03\Rumb.h" />
-    <ClInclude Include="..\netology_5.06.03\Square.h" />
-    <ClInclude Include="..\netology_5.06.03\Triangle.h" />
-    <ClInclude Include="..\netology_5.06.03\UninhabitedTriangle.h" />
+    <ClInclude Include="EquilateralTriangle.h" />
+    <ClInclude Include="Figure.h" />
+    <ClInclude Include="Parallelogamm.h" />
+    <ClInclude Include="Quadrangle.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangularTriangle.h" />
+    <ClInclude Include="Rumb.h" />
+    <ClInclude Include="Square.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="UninhabitedTriangle.h" />
+    <ClInclude Include="FigureException.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
