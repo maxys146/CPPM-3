@@ -3,9 +3,38 @@
 
 #include <iostream>
 
+class bad_length : public std::exception
+{
+    public:const char* what() const override { return "Вы ввели слово запретной длины! "; }
+};
+
+int function(std::string str, int forbidden_length)
+{
+    if (forbidden_length == str.length()) throw bad_length();
+    return forbidden_length;
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+    std::string word;
+    int length;
+    while (true)
+    {
+        std::cout << "Введите запретную длину: ";
+        std::cin >> length;
+        std::cout << "Введите слово: ";
+        std::cin >> word;
+        try
+        {
+            std::cout << "Длина слова \"" << word << "\"" "равна " << function(word, length) << "\n";
+        }
+        catch (bad_length& ex) {
+            std::cout << ex.what() << std::endl;
+            std::cout << "До свидания !" << std::endl;
+            return 1;
+        }
+    }
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
