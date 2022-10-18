@@ -13,6 +13,49 @@
 #include "Rumb.h"
 
 
+class FigureException1 : public std::exception
+{
+public:
+    FigureException1(const std::string& what) : m_what(what)
+    {
+    }
+
+    const char* what() const override
+    {
+        return m_what.c_str();
+    }
+
+protected:
+    std::string m_what;
+};
+
+class FigureException2 : public std::domain_error
+{
+public:
+    FigureException2(const std::string& what) : std::domain_error(what)
+    {
+    }
+};
+
+
+
+//Triangle::Triangle(int a, int b, int c, int A, int B, int C, const std::string& name) : Figure(tri, name)
+//{
+//    set_sides_abc(a, b, c);
+//    set_corners_ABC(A, B, C);
+//    set_corners_count(tri);
+//    set_sides_count(tri);
+//    set_name(name);
+//    std::stringstream message;
+//    if ((a <= 0)  (b <= 0)  (c <= 0)) {
+//        print_info(false);
+//        message.str(std::string());
+//        message << "Причина: ";
+//        message << "все длины сторон должны быть положительным числом";
+//        throw FigureException(message.str());
+//    }
+//
+//}
 void print_info(Figure* figure)
 {
     std::cout << figure->get_name() << ": " << "\n";
@@ -52,7 +95,16 @@ int main()
     Figure* triangle_ecu = new EquilateralTriangle(30);
     print_info(triangle_ecu);
     delete triangle_ecu;
-
+    try
+    {
+        //throw Exception("asdasd");
+        throw FigureException2("Причина: сумма углов треугольника не равна 180");
+    }
+    catch (FigureException2& ex)
+    {
+        //std::cout << ex.what() << std::endl;
+        std::cout << ex.what() << std::endl;
+    }
     Figure* quadrangle = new Quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
     print_info(quadrangle);
     delete quadrangle;
