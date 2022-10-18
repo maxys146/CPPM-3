@@ -127,7 +127,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\netology_5.06.03\EquilateralTriangle.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Figure.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Parallelogamm.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Quadrangle.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Rectangle.cpp" />
+    <ClCompile Include="..\netology_5.06.03\RectangularTriangle.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Rumb.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Square.cpp" />
+    <ClCompile Include="..\netology_5.06.03\Triangle.cpp" />
+    <ClCompile Include="..\netology_5.06.03\UninhabitedTriangle.cpp" />
     <ClCompile Include="netology_5.08.02.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\netology_5.06.03\EquilateralTriangle.h" />
+    <ClInclude Include="..\netology_5.06.03\Figure.h" />
+    <ClInclude Include="..\netology_5.06.03\Parallelogamm.h" />
+    <ClInclude Include="..\netology_5.06.03\Quadrangle.h" />
+    <ClInclude Include="..\netology_5.06.03\Rectangle.h" />
+    <ClInclude Include="..\netology_5.06.03\RectangularTriangle.h" />
+    <ClInclude Include="..\netology_5.06.03\Rumb.h" />
+    <ClInclude Include="..\netology_5.06.03\Square.h" />
+    <ClInclude Include="..\netology_5.06.03\Triangle.h" />
+    <ClInclude Include="..\netology_5.06.03\UninhabitedTriangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
