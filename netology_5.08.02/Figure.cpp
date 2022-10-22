@@ -4,19 +4,15 @@
 Figure::Figure()
 {
     name = "Треугольник";
+    sides_count = 0;
+    this->check();
 }
 bool Figure::check()
 {
-    if (this->sides_count != 1)
+    if (this->sides_count != 0)
     {
         throw FigureException("Сторон нифига не 0");
-        std::cout << "false";
         return false;
-    }
-    else
-    {
-        std::cout << "true";
-        return true;
     }
 }
 std::string Figure::get_name()

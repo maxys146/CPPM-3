@@ -5,5 +5,6 @@ class RectangularTriangle :
 {
 public:
     RectangularTriangle(int a, int b, int c, int A, int B);
+    bool check() override;
 };
 
