@@ -17,15 +17,15 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    try
-    {
-        Figure* figure = new Figure();
-    }
-    catch (FigureException& ex)
-    {
-        std::cout << ex.what() << std::endl;
-    }
-    std::cout << std::endl;
+    //try
+    //{
+    //    Figure* figure = new Figure();
+    //}
+    //catch (FigureException& ex)
+    //{
+    //    std::cout << ex.what() << std::endl;
+    //}
+    //std::cout << std::endl;
 
     try
     {
@@ -39,7 +39,16 @@ int main()
 
     try
     {
-        Figure* bad_triangle = new Triangle(10, 20, 30, 40, 50, 60);
+        Figure* bad_triangle = new Triangle(11, 22, 33, 40, 50, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 40, 50);
     }
     catch (FigureException& ex)
     {
@@ -49,17 +58,7 @@ int main()
 
     try
     {
-        Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 50, 60);
-    }
-    catch (FigureException& ex)
-    {
-        std::cout << ex.what() << std::endl;
-    }
-    std::cout << std::endl;
-
-    try
-    {
-        Figure* bad_triangle_rec = new RectangularTriangle(10, 20, 30, 40, 50);
+        Figure* bad_triangle_rec = new RectangularTriangle(11, 22, 33, 80, 150);
     }
     catch (FigureException& ex)
     {

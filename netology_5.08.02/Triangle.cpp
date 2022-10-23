@@ -15,9 +15,9 @@ Triangle::Triangle(int a, int b, int c, int A, int B, int C)
     this->A = A;
     this->B = B;
     this->C = C;
-
-    this->print_info();
+    std::cout << this->print_data();
     this->check();
+    std::cout << "создан.\n";
 }
 bool Triangle::check()
 {
