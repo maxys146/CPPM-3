@@ -258,6 +258,62 @@ int main()
     }
     std::cout << std::endl;
 
+    // Параллелограммы
+    try
+    {
+        Figure* parallelogamm = new Parallelogamm(10, 20, 10, 20, 60, 120, 60, 120);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* parallelogamm_bad_1 = new Parallelogamm(10, 20, 10, 20, 90, 90, 90, 100);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* parallelogamm_bad_2 = new Parallelogamm(10, 20, 10, 20, 80, 90, 100, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* parallelogamm_bad_1 = new Parallelogamm(10, 20, 10, 20, 90, 70, 90, 110);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* parallelogamm_bad_3 = new Parallelogamm(10, 20, 10, 40, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* parallelogamm_bad_4 = new Parallelogamm(10, 20, 40, 20, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+
     //Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
     //print_info(triangle_uni);
     //delete triangle_uni;
