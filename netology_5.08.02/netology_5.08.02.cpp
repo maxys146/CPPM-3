@@ -27,6 +27,7 @@ int main()
     //}
     //std::cout << std::endl;
 
+    // Треугольники
     try
     {
         Figure* triangle = new Triangle(10, 20, 30, 50, 60, 70);
@@ -46,9 +47,29 @@ int main()
         std::cout << ex.what() << std::endl;
     }
     std::cout << std::endl;
+
+    // Прямоугольные треугольники
     try
     {
-        Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 40, 50);
+        Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 40, 50, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_rec_bad_1 = new RectangularTriangle(11, 22, 33, 80, 150, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_rec_bad_2 = new RectangularTriangle(11, 22, 33, 40, 40, 100);
     }
     catch (FigureException& ex)
     {
@@ -56,9 +77,28 @@ int main()
     }
     std::cout << std::endl;
 
+    // Равнобедренные треугольники
     try
     {
-        Figure* bad_triangle_rec = new RectangularTriangle(11, 22, 33, 80, 150);
+        Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_uni_bad_1 = new UninhabitedTriangle(10, 20, 50, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_uni_bad_2 = new UninhabitedTriangle(10, 20, 50, 60);
     }
     catch (FigureException& ex)
     {
@@ -68,12 +108,7 @@ int main()
 
     return 0;
     
-    //Figure* triangle = new Triangle(10, 20, 30, 50, 60, 70);
-    //print_info(triangle);
-    //delete triangle;
-    //Figure* triangle_rec = new RectangularTriangle(10, 20, 30, 50, 60);
-    //print_info(triangle_rec);
-    //delete triangle_rec;
+
     //Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
     //print_info(triangle_uni);
     //delete triangle_uni;

@@ -1,7 +1,7 @@
 #include "RectangularTriangle.h"
 #include "FigureException.h"
 
-RectangularTriangle::RectangularTriangle(int a, int b, int c, int A, int B)
+RectangularTriangle::RectangularTriangle(int a, int b, int c, int A, int B, int C)
 {
     sides_count = 3;
     name = "Прямоугольный треугольник";
@@ -10,7 +10,7 @@ RectangularTriangle::RectangularTriangle(int a, int b, int c, int A, int B)
     this->c = c;
     this->A = A;
     this->B = B;
-    this->C = 90;
+    this->C = C;
     std::cout << this->print_data();
     this->check();
     std::cout << "создан.\n";
@@ -24,7 +24,7 @@ bool RectangularTriangle::check()
     else
     {
         std::cout << "не создан. Причина: ";
-        throw FigureException("Угол не 90 градусов\n");
+        throw FigureException("Угол \"C\" не 90 градусов\n");
         return false;
     }
 }
