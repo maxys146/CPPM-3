@@ -17,15 +17,6 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    //try
-    //{
-    //    Figure* figure = new Figure();
-    //}
-    //catch (FigureException& ex)
-    //{
-    //    std::cout << ex.what() << std::endl;
-    //}
-    //std::cout << std::endl;
 
     // Треугольники
     try
@@ -37,7 +28,6 @@ int main()
         std::cout << ex.what() << std::endl;
     }
     std::cout << std::endl;
-
     try
     {
         Figure* bad_triangle = new Triangle(11, 22, 33, 40, 50, 60);
@@ -314,27 +304,53 @@ int main()
     }
     std::cout << std::endl;
 
-    //Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
-    //print_info(triangle_uni);
-    //delete triangle_uni;
-    //Figure* triangle_ecu = new EquilateralTriangle(30);
-    //print_info(triangle_ecu);
-    //delete triangle_ecu;
-    //Figure* quadrangle = new Quadrangle(10, 20, 30, 40, 50, 60, 70, 80);
-    //print_info(quadrangle);
-    //delete quadrangle;
-    //Figure* rectangle = new Rectangle(10, 20);
-    //print_info(rectangle);
-    //delete rectangle;
-    //Figure* square = new Square(20);
-    //print_info(square);
-    //delete square;
-    //Figure* parallelogamm = new Parallelogamm(20, 30, 30, 40);
-    //print_info(parallelogamm);
-    //delete parallelogamm;
-    //Figure* rumb = new Rumb(30, 30, 40);
-    //print_info(rumb);
-    //delete rumb;
+    // Ромбы
+    try
+    {
+        Figure* rumb = new Rumb(10, 10, 10, 10, 60, 120, 60, 120);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rumb_bad_1 = new Rumb(10, 10, 10, 10, 60, 130, 60, 120);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rumb_bad_2 = new Rumb(10, 10, 10, 10, 60, 130, 60, 110);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rumb_bad_1 = new Rumb(10, 10, 10, 10, 70, 120, 50, 120);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rumb_bad_3 = new Rumb(10, 20, 30, 40, 60, 120, 60, 120);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
