@@ -152,7 +152,27 @@ int main()
         std::cout << ex.what() << std::endl;
     }
     std::cout << std::endl;
-    return 0;
+    
+    // Четырехугольники
+    try
+    {
+        Figure* quadrangle = new Quadrangle(10, 20, 30, 50, 90, 70, 110, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    try
+    {
+        Figure* quadrangle_bad = new Quadrangle(11, 22, 33, 40, 50, 60, 70, 80);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
     
 
     //Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
