@@ -211,6 +211,53 @@ int main()
     }
     std::cout << std::endl;
 
+    // Квадраты
+    try
+    {
+        Figure* square = new Square(10, 10, 10, 10, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* square_bad_1 = new Square(10, 10, 10, 10, 90, 90, 90, 100);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* square_bad_2 = new Square(10, 10, 10, 10, 90, 90, 100, 80);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* square_bad_1 = new Square(10, 20, 30, 20, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* square_bad_2 = new Square(10, 20, 10, 40, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+
     //Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
     //print_info(triangle_uni);
     //delete triangle_uni;
