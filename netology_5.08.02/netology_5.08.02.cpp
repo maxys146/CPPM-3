@@ -163,7 +163,6 @@ int main()
         std::cout << ex.what() << std::endl;
     }
     std::cout << std::endl;
-
     try
     {
         Figure* quadrangle_bad = new Quadrangle(11, 22, 33, 40, 50, 60, 70, 80);
@@ -174,6 +173,43 @@ int main()
     }
     std::cout << std::endl;
     
+    // Прямоугольники
+    try
+    {
+        Figure* rectangle = new Rectangle(10, 50, 10, 50, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rectangle_bad = new Rectangle(10, 20, 30, 20, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rectangle_bad_1 = new Rectangle(10, 20, 10, 40, 90, 90, 90, 90);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* rectangle_bad_2 = new Rectangle(10, 50, 10, 50, 90, 90, 80, 100);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
 
     //Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
     //print_info(triangle_uni);

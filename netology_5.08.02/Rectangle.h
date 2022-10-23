@@ -5,6 +5,7 @@ class Rectangle :
 {
 public:
     Rectangle();
-    Rectangle(int a, int b);
+    Rectangle(int a, int b, int c, int d, int A, int B, int C, int D);
+    bool check() override;
 };
 
