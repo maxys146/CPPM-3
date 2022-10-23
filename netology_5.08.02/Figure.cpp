@@ -15,6 +15,27 @@ bool Figure::check()
         return false;
     }
 }
+void Figure::print_info()
+{
+    std::cout << this->get_name() << " ";
+    std::cout << "(cтороны: "
+        << this->get_side_a()
+        << ", " << this->get_side_b()
+        << ", " << this->get_side_c();
+    if (this->get_side_d() != 0)
+    {
+        std::cout << ", " << this->get_side_d();
+    }
+    std::cout << "; углы: "
+        << this->get_angle_A()
+        << ", " << this->get_angle_B()
+        << ", " << this->get_angle_C();
+    if (this->get_angle_D() != 0)
+    {
+        std::cout << ", " << this->get_angle_D();
+    }
+    std::cout << ") ";
+}
 std::string Figure::get_name()
 {
     return name;

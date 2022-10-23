@@ -11,6 +11,7 @@ protected:
 public:
     Figure();
     std::string get_name();
+    virtual void print_info();
     int get_side_a();
     int get_side_b();
     int get_side_c();
