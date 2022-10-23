@@ -5,7 +5,7 @@
 Square::Square(int a, int b, int c, int d, int A, int B, int C, int D)
 {
     sides_count = 4;
-    name = "Прямоугольник";
+    name = "Квадрат";
     this->a = a;
     this->b = b;
     this->c = c;
