@@ -115,6 +115,43 @@ int main()
     }
     std::cout << std::endl;
 
+    // Равносторонний треугольники
+    try
+    {
+        Figure* triangle_equ = new EquilateralTriangle(10, 10, 10, 60, 60, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_equ_bad_1 = new EquilateralTriangle(10, 10, 10, 50, 60, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_equ_bad_2 = new EquilateralTriangle(10, 20, 20, 60, 60, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_equ_bad_2 = new EquilateralTriangle(10, 10, 10, 40, 80, 60);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
     return 0;
     
 

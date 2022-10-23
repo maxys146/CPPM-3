@@ -21,11 +21,12 @@ bool UninhabitedTriangle::check()
     {
         if (a != c) {
             std::cout << "не создан. Причина: ";
-            throw FigureException("Сторона \"a\" не равна стороне \"b\"\n");
+            throw FigureException("Сторона \"a\" не равна стороне \"b\"");
             return false;
-        } else if (A != C) {
+        }
+        else if (A != C) {
             std::cout << "не создан. Причина: ";
-            throw FigureException("Угол \"A\" не равен углу \"B\"\n");
+            throw FigureException("Угол \"A\" не равен углу \"B\"");
             return false;
         }
         return true;
