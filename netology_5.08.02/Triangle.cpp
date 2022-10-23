@@ -21,13 +21,22 @@ Triangle::Triangle(int a, int b, int c, int A, int B, int C)
 }
 bool Triangle::check()
 {
-    if ((A + B + C) == 180 && sides_count == 3)
+    if ((A + B + C) != 180)
     {
-        return true;
+        std::cout << "не создан. Причина: ";
+        throw FigureException("Сумма углов не равна 180");
+        return false;
+    }
+    else if (sides_count != 3)
+    {
+        std::cout << "не создан. Причина: ";
+        throw FigureException("Количество сторон не равно 3");
+        return false;
     }
     else
     {
-        throw FigureException("Плохой треугольник, или 180 или сторорн не 3");
-        return false;
+        return true;
     }
+    
+    
 }

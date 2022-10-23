@@ -5,13 +5,13 @@ Figure::Figure()
 {
     name = "Треугольник";
     sides_count = 0;
-    this->check();
 }
 bool Figure::check()
 {
     if (this->sides_count != 0)
     {
-        throw FigureException("Сторон нифига не 0");
+        std::cout << "не создан. Причина: ";
+        throw FigureException("Сторон не 0");
         return false;
     }
 }
@@ -35,6 +35,10 @@ void Figure::print_info()
         std::cout << ", " << this->get_angle_D();
     }
     std::cout << ") ";
+    this->check();
+
+    std::cout << "создан.\n";
+    
 }
 std::string Figure::get_name()
 {
