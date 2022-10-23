@@ -80,7 +80,7 @@ int main()
     // Равнобедренные треугольники
     try
     {
-        Figure* triangle_uni = new UninhabitedTriangle(10, 20, 50, 60);
+        Figure* triangle_uni = new UninhabitedTriangle(10, 20, 10, 50, 80, 50);
     }
     catch (FigureException& ex)
     {
@@ -89,7 +89,7 @@ int main()
     std::cout << std::endl;
     try
     {
-        Figure* triangle_uni_bad_1 = new UninhabitedTriangle(10, 20, 50, 60);
+        Figure* triangle_uni_bad_1 = new UninhabitedTriangle(10, 20, 10, 50, 80, 60);
     }
     catch (FigureException& ex)
     {
@@ -98,7 +98,16 @@ int main()
     std::cout << std::endl;
     try
     {
-        Figure* triangle_uni_bad_2 = new UninhabitedTriangle(10, 20, 50, 60);
+        Figure* triangle_uni_bad_2 = new UninhabitedTriangle(10, 20, 20, 50, 80, 50);
+    }
+    catch (FigureException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    std::cout << std::endl;
+    try
+    {
+        Figure* triangle_uni_bad_2 = new UninhabitedTriangle(10, 20, 10, 40, 80, 60);
     }
     catch (FigureException& ex)
     {

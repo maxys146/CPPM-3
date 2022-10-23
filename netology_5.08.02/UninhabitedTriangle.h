@@ -4,6 +4,6 @@ class UninhabitedTriangle :
     public Triangle
 {
 public:
-    UninhabitedTriangle(int a, int b, int A, int B);
+    UninhabitedTriangle(int a, int b, int c, int A, int B, int C);
+    bool check() override;
 };
-
