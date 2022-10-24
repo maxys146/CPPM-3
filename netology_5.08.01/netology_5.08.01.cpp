@@ -11,7 +11,7 @@ class bad_length : public std::exception
 int function(std::string str, int forbidden_length)
 {
     if (forbidden_length == str.length()) throw bad_length();
-    return forbidden_length;
+    return str.length();
 }
 
 int main()
