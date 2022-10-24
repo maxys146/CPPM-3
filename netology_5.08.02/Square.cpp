@@ -25,7 +25,6 @@ bool Square::check()
         if (a != b || b != c || c != d) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Стороны не равны");
-            return false;
         }
         return true;
     }

@@ -27,13 +27,11 @@ bool Quadrangle::check()
     {
         std::cout << "не создан. Причина: ";
         throw FigureException("Сумма углов не равна 360");
-        return false;
     }
     else if (sides_count != 4)
     {
         std::cout << "не создан. Причина: ";
         throw FigureException("Количество сторон не равно 4");
-        return false;
     }
     else
     {

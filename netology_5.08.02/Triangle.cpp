@@ -25,13 +25,11 @@ bool Triangle::check()
     {
         std::cout << "не создан. Причина: ";
         throw FigureException("Сумма углов не равна 180");
-        return false;
     }
     else if (sides_count != 3)
     {
         std::cout << "не создан. Причина: ";
         throw FigureException("Количество сторон не равно 3");
-        return false;
     }
     else
     {

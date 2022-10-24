@@ -25,22 +25,18 @@ bool Parallelogamm::check()
         if (a != c) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Сторона \"a\" не равна стороне \"c\"");
-            return false;
         }
         else if (b != d) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Сторона \"b\" не равна стороне \"d\"");
-            return false;
         }
         else if(A != C) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Угол \"A\" не равен углу \"C\"");
-            return false;
         }
         else if (B != D) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Угол \"B\" нне равен углу \"D\"");
-            return false;
         }
         return true;
     }

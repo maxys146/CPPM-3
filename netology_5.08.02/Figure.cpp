@@ -13,7 +13,6 @@ bool Figure::check()
     {
         std::cout << "не создан. Причина: ";
         throw FigureException("Сторон не 0");
-        return false;
     }
 }
 std::string Figure::print_data()

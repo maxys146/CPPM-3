@@ -28,17 +28,14 @@ bool Rectangle::check()
         if (a != c) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Сторона \"a\" не равна стороне \"c\"");
-            return false;
         }
         else if (b != d) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Сторона \"b\" не равна стороне \"d\"");
-            return false;
         }
         else if (A != 90 || B != 90 || C != 90 || D != 90) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Углы не равны 90");
-            return false;
         }
         return true;
     }

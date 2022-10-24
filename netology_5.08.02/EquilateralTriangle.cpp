@@ -22,12 +22,10 @@ bool EquilateralTriangle::check()
         if (a != b || b != c) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Стороны не равны");
-            return false;
         }
         else if (A != 60 || B != 60 || C != 60) {
             std::cout << "не создан. Причина: ";
             throw FigureException("Уголы не равны 60");
-            return false;
         }
         return true;
     }

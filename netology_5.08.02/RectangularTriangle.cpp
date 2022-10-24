@@ -25,6 +25,5 @@ bool RectangularTriangle::check()
     {
         std::cout << "не создан. Причина: ";
         throw FigureException("Угол \"C\" не 90 градусов");
-        return false;
     }
 }
