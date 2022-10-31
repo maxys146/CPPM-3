@@ -6,21 +6,51 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-
-    // Данные для верблюда
-    int speed = 10;
-    int timeToRest = 30;
-    int restingTime = 5;
+    
+    // Общие данные
+    int totalRestingTime = 0;
+    int restCount = 0;
     int distance = 0;
     int raceTimeWoRest = 0;
     int totalRaceTime = 0;
+    // Данные для верблюда
+    //int speed = 10;
+    //int timeToRest = 30;
+    //int resting1stTime = 5;
+    //int resting2ndTime = 8;
+    //int restingOtherTime = 8;
+    // Данные для верблюда-быстрохода
+    int speed = 40;
+    int timeToRest = 10;
+    int resting1stTime = 5;
+    int resting2ndTime = 7;
+    int restingOtherTime = 8;
 
     std::cout << "Укажите длину дистанции (должна быть положительна): ";
     std::cin >> distance;
     raceTimeWoRest = distance / speed;
-    totalRaceTime = raceTimeWoRest + ((raceTimeWoRest / timeToRest) * restingTime);
 
     std::cout << "Время прохождения дистанции без отдыха: " << raceTimeWoRest << std::endl;
+
+    restCount = raceTimeWoRest / timeToRest;
+    std::cout << "Всего периодов отдыха: " << restCount << std::endl;
+
+    if (restCount == 1)
+    {
+        totalRestingTime = resting1stTime;
+    }
+    else if (restCount == 2)
+    {
+        totalRestingTime = resting1stTime + resting2ndTime;
+    }
+    else if (restCount > 2)
+    {
+        totalRestingTime = resting1stTime + resting2ndTime + (restingOtherTime * (restCount - 2));
+    }
+    std::cout << "Всего время отдыха: " << totalRestingTime << std::endl;
+
+    totalRaceTime = raceTimeWoRest + totalRestingTime;
+    std::cout << "--------------------------------------------------" << std::endl;
     std::cout << "Время прохождения дистанции с отдыхом: " << totalRaceTime << std::endl;
 }
 
