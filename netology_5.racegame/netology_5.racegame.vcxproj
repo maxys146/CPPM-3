@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camel.cpp" />
     <ClCompile Include="netology_5.racegame.cpp" />
     <ClCompile Include="Transport.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camel.h" />
     <ClInclude Include="Transport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
