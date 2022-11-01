@@ -29,6 +29,7 @@ int main()
 
 
     Transport* camel = new Camel();
+    camel->setDistance(1000);
     std::cout << "Время прохождения дистанции из класса: " << camel->getTotalRaceTime() << std::endl;
 
 
