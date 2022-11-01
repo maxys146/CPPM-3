@@ -9,9 +9,7 @@ Camel::Camel()
 }
 int Camel::getTotalRaceTime()
 {
-    //this->distance = 1000; // TODO Поменять на входные данные
     raceTimeWoRest = distance / speed;
-
     restCount = raceTimeWoRest / timeToRest;
 
     if (restCount == 1)
@@ -20,7 +18,7 @@ int Camel::getTotalRaceTime()
     }
     else if (restCount > 1)
     {
-        totalRestingTime = resting1stTime + resting2ndTime + (restingOtherTime * (restCount - 1));
+        totalRestingTime = resting1stTime + (restingOtherTime * (restCount - 1));
     }
     totalRaceTime = raceTimeWoRest + totalRestingTime;
 	return totalRaceTime;

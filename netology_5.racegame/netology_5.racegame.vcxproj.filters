@@ -24,12 +24,18 @@
     <ClCompile Include="Camel.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="FastCamel.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Transport.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Camel.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FastCamel.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
