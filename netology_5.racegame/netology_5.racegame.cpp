@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Camel.h"
 #include "FastCamel.h"
+#include "Centaur.h"
+#include "BootsAT.h"
 
 int main()
 {
@@ -28,45 +30,25 @@ int main()
     int resting2ndTime = 7;
     int restingOtherTime = 8;
 
-
-    Transport* camel = new Camel();
-    camel->setDistance(1000);
-    std::cout << "Время прохождения дистанции из класса: " << camel->getTotalRaceTime() << std::endl;
-
-    Transport* fastCamel = new FastCamel();
-    fastCamel->setDistance(1000);
-    std::cout << "Время прохождения дистанции из класса: " << fastCamel->getTotalRaceTime() << std::endl;
-
-
-
-
-    //return 0;
     std::cout << "Укажите длину дистанции (должна быть положительна): ";
     std::cin >> distance;
-    raceTimeWoRest = distance / speed;
 
-    std::cout << "Время прохождения дистанции без отдыха: " << raceTimeWoRest << std::endl;
+    Transport* camel = new Camel();
+    camel->setDistance(distance);
+    std::cout << "Время прохождения дистанции Camel с отдыхом: " << camel->getTotalRaceTime() << std::endl;
 
-    restCount = raceTimeWoRest / timeToRest;
-    std::cout << "Всего периодов отдыха: " << restCount << std::endl;
+    Transport* fastCamel = new FastCamel();
+    fastCamel->setDistance(distance);
+    std::cout << "Время прохождения дистанции FastCamel с отдыхом: " << fastCamel->getTotalRaceTime() << std::endl;
 
-    if (restCount == 1)
-    {
-        totalRestingTime = resting1stTime;
-    }
-    else if (restCount == 2)
-    {
-        totalRestingTime = resting1stTime + resting2ndTime;
-    }
-    else if (restCount > 2)
-    {
-        totalRestingTime = resting1stTime + resting2ndTime + (restingOtherTime * (restCount - 2));
-    }
-    std::cout << "Всего время отдыха: " << totalRestingTime << std::endl;
+    Transport* centaur = new Centaur();
+    centaur->setDistance(distance);
+    std::cout << "Время прохождения дистанции Centaur с отдыхом: " << centaur->getTotalRaceTime() << std::endl;
 
-    totalRaceTime = raceTimeWoRest + totalRestingTime;
-    std::cout << "--------------------------------------------------" << std::endl;
-    std::cout << "Время прохождения дистанции с отдыхом: " << totalRaceTime << std::endl;
+    Transport* bootsAT = new BootsAT();
+    bootsAT->setDistance(distance);
+    std::cout << "Время прохождения дистанции BootsAT с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

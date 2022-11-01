@@ -1,13 +1,13 @@
-#include "Camel.h"
+#include "BootsAT.h"
 
-Camel::Camel()
+BootsAT::BootsAT()
 {
-    speed = 10;
-	timeToRest = 30;
-	resting1stTime = 5;
-	restingOtherTime = 8;
+    speed = 6;
+    timeToRest = 60;
+    resting1stTime = 10;
+    restingOtherTime = 5;
 }
-int Camel::getTotalRaceTime()
+int BootsAT::getTotalRaceTime()
 {
     raceTimeWoRest = distance / speed;
     restCount = raceTimeWoRest / timeToRest;
@@ -15,5 +15,5 @@ int Camel::getTotalRaceTime()
     totalRestingTime = resting1stTime + (restingOtherTime * (restCount - 1));
 
     totalRaceTime = raceTimeWoRest + totalRestingTime;
-	return totalRaceTime;
+    return totalRaceTime;
 }

@@ -127,13 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BootsAT.cpp" />
     <ClCompile Include="Camel.cpp" />
+    <ClCompile Include="Centaur.cpp" />
     <ClCompile Include="FastCamel.cpp" />
     <ClCompile Include="netology_5.racegame.cpp" />
     <ClCompile Include="Transport.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BootsAT.h" />
     <ClInclude Include="Camel.h" />
+    <ClInclude Include="Centaur.h" />
     <ClInclude Include="FastCamel.h" />
     <ClInclude Include="Transport.h" />
   </ItemGroup>
