@@ -12,23 +12,7 @@ int main()
     setlocale(LC_ALL, "Russian");
     
     // Общие данные
-    int totalRestingTime = 0;
-    int restCount = 0;
     int distance = 0;
-    int raceTimeWoRest = 0;
-    int totalRaceTime = 0;
-    // Данные для верблюда
-    //int speed = 10;
-    //int timeToRest = 30;
-    //int resting1stTime = 5;
-    //int resting2ndTime = 8;
-    //int restingOtherTime = 8;
-    // Данные для верблюда-быстрохода
-    int speed = 40;
-    int timeToRest = 10;
-    int resting1stTime = 5;
-    int resting2ndTime = 7;
-    int restingOtherTime = 8;
 
     std::cout << "Укажите длину дистанции (должна быть положительна): ";
     std::cin >> distance;
