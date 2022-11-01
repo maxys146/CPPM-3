@@ -16,6 +16,6 @@ protected:
     int restingOtherTime = 0;
 public:
     bool setDistance(int distance);
-    int getTotalRaceTime();
+    virtual int getTotalRaceTime();
 };
 

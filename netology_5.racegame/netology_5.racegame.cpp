@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "Camel.h"
 
 int main()
 {
@@ -14,18 +15,26 @@ int main()
     int raceTimeWoRest = 0;
     int totalRaceTime = 0;
     // Данные для верблюда
-    //int speed = 10;
-    //int timeToRest = 30;
-    //int resting1stTime = 5;
-    //int resting2ndTime = 8;
-    //int restingOtherTime = 8;
-    // Данные для верблюда-быстрохода
-    int speed = 40;
-    int timeToRest = 10;
+    int speed = 10;
+    int timeToRest = 30;
     int resting1stTime = 5;
-    int resting2ndTime = 7;
+    int resting2ndTime = 8;
     int restingOtherTime = 8;
+    // Данные для верблюда-быстрохода
+    //int speed = 40;
+    //int timeToRest = 10;
+    //int resting1stTime = 5;
+    //int resting2ndTime = 7;
+    //int restingOtherTime = 8;
 
+
+    Transport* camel = new Camel();
+    std::cout << "Время прохождения дистанции из класса: " << camel->getTotalRaceTime() << std::endl;
+
+
+
+
+    //return 0;
     std::cout << "Укажите длину дистанции (должна быть положительна): ";
     std::cin >> distance;
     raceTimeWoRest = distance / speed;

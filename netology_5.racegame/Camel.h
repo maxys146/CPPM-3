@@ -3,5 +3,8 @@
 class Camel :
     public Transport
 {
+public:
+    Camel();
+    int getTotalRaceTime() override;
 };
 
