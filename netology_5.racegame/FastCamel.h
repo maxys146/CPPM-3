@@ -5,6 +5,6 @@ class FastCamel :
 {
 public:
     FastCamel();
-    int getTotalRaceTime() override;
+    double getTotalRaceTime() override;
 };
 

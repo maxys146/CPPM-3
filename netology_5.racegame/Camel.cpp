@@ -1,4 +1,5 @@
 #include "Camel.h"
+#include <iostream>
 
 Camel::Camel()
 {
@@ -7,10 +8,14 @@ Camel::Camel()
 	resting1stTime = 5;
 	restingOtherTime = 8;
 }
-int Camel::getTotalRaceTime()
+double Camel::getTotalRaceTime()
 {
     raceTimeWoRest = distance / speed;
     restCount = raceTimeWoRest / timeToRest;
+    if (floor(restCount) == restCount)
+        restCount = restCount - 1;
+    else
+        restCount = floor(restCount);
 
     totalRestingTime = resting1stTime + (restingOtherTime * (restCount - 1));
 

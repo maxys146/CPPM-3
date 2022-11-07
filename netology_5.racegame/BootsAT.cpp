@@ -1,4 +1,5 @@
 #include "BootsAT.h"
+#include <iostream>
 
 BootsAT::BootsAT()
 {
@@ -7,10 +8,14 @@ BootsAT::BootsAT()
     resting1stTime = 10;
     restingOtherTime = 5;
 }
-int BootsAT::getTotalRaceTime()
+double BootsAT::getTotalRaceTime()
 {
     raceTimeWoRest = distance / speed;
     restCount = raceTimeWoRest / timeToRest;
+    if (floor(restCount) == restCount)
+        restCount = restCount - 1;
+    else
+        restCount = floor(restCount);
 
     totalRestingTime = resting1stTime + (restingOtherTime * (restCount - 1));
 

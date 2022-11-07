@@ -5,6 +5,6 @@ class Camel :
 {
 public:
     Camel();
-    int getTotalRaceTime() override;
+    double getTotalRaceTime() override;
 };
 

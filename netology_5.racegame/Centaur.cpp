@@ -1,4 +1,5 @@
 #include "Centaur.h"
+#include <iostream>
 
 Centaur::Centaur()
 {
@@ -6,11 +7,14 @@ Centaur::Centaur()
     timeToRest = 8;
     restingOtherTime = 2;
 }
-int Centaur::getTotalRaceTime()
+double Centaur::getTotalRaceTime()
 {
     raceTimeWoRest = distance / speed;
     restCount = raceTimeWoRest / timeToRest;
-
+    if (floor(restCount) == restCount)
+        restCount = restCount - 1;
+    else
+        restCount = floor(restCount);
 
     totalRestingTime = restingOtherTime * restCount;
 

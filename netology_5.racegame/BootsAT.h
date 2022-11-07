@@ -5,6 +5,6 @@ class BootsAT :
 {
 public:
     BootsAT();
-    int getTotalRaceTime() override;
+    double getTotalRaceTime() override;
 };
 

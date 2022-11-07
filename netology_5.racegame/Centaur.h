@@ -5,6 +5,6 @@ class Centaur :
 {
 public:
     Centaur();
-    int getTotalRaceTime() override;
+    double getTotalRaceTime() override;
 };
 
