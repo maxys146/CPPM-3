@@ -8,6 +8,7 @@
 #include "BootsAT.h"
 #include "MagicCarpet.h"
 #include "Eagle.h"
+#include "Broom.h"
 
 int main()
 {
@@ -16,9 +17,9 @@ int main()
     // Общие данные
     int distance = 0;
 
-    //std::cout << "Укажите длину дистанции (должна быть положительна): ";
-    //std::cin >> distance;
-    distance = 4500;
+    std::cout << "Укажите длину дистанции (должна быть положительна): ";
+    std::cin >> distance;
+    //distance = 99000;
 
     Transport* camel = new Camel();
     camel->setDistance(distance);
@@ -43,6 +44,10 @@ int main()
     Transport* eagle = new Eagle();
     eagle->setDistance(distance);
     std::cout << "Время прохождения дистанции Eagle с сокращением: " << eagle->getTotalRaceTime() << std::endl;
+
+    Transport* broom = new Broom();
+    broom->setDistance(distance);
+    std::cout << "Время прохождения дистанции Broom с сокращением: " << broom->getTotalRaceTime() << std::endl;
 
 }
 
