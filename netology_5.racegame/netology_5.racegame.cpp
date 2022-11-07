@@ -7,6 +7,7 @@
 #include "Centaur.h"
 #include "BootsAT.h"
 #include "MagicCarpet.h"
+#include "Eagle.h"
 
 int main()
 {
@@ -38,6 +39,10 @@ int main()
     Transport* magicCarpet = new MagicCarpet();
     magicCarpet->setDistance(distance);
     std::cout << "Время прохождения дистанции MagicCarpet с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
+
+    Transport* eagle = new Eagle();
+    eagle->setDistance(distance);
+    std::cout << "Время прохождения дистанции Eagle с сокращением: " << eagle->getTotalRaceTime() << std::endl;
 
 }
 

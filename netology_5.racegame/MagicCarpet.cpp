@@ -1,5 +1,4 @@
 #include "MagicCarpet.h"
-#include <iostream>
 
 MagicCarpet::MagicCarpet()
 {
