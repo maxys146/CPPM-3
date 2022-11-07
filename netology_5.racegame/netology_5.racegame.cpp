@@ -6,16 +6,18 @@
 #include "FastCamel.h"
 #include "Centaur.h"
 #include "BootsAT.h"
+#include "MagicCarpet.h"
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    
+
     // Общие данные
     int distance = 0;
 
-    std::cout << "Укажите длину дистанции (должна быть положительна): ";
-    std::cin >> distance;
+    //std::cout << "Укажите длину дистанции (должна быть положительна): ";
+    //std::cin >> distance;
+    distance = 4500;
 
     Transport* camel = new Camel();
     camel->setDistance(distance);
@@ -32,6 +34,10 @@ int main()
     Transport* bootsAT = new BootsAT();
     bootsAT->setDistance(distance);
     std::cout << "Время прохождения дистанции BootsAT с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
+
+    Transport* magicCarpet = new MagicCarpet();
+    magicCarpet->setDistance(distance);
+    std::cout << "Время прохождения дистанции MagicCarpet с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
 
 }
 

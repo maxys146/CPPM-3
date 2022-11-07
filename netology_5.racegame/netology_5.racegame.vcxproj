@@ -131,6 +131,7 @@
     <ClCompile Include="Camel.cpp" />
     <ClCompile Include="Centaur.cpp" />
     <ClCompile Include="FastCamel.cpp" />
+    <ClCompile Include="MagicCarpet.cpp" />
     <ClCompile Include="netology_5.racegame.cpp" />
     <ClCompile Include="Transport.cpp" />
   </ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="Camel.h" />
     <ClInclude Include="Centaur.h" />
     <ClInclude Include="FastCamel.h" />
+    <ClInclude Include="MagicCarpet.h" />
     <ClInclude Include="Transport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
