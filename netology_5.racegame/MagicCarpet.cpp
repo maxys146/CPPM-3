@@ -4,6 +4,7 @@ MagicCarpet::MagicCarpet()
 {
     speed = 10;
     transportName = "Ковёр-самолёт";
+    transportId = 7;
     transportType = 2;
 }
 double MagicCarpet::getTotalRaceTime()

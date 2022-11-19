@@ -14,6 +14,19 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
+
+    int transportArray[7]{};
+
+    for (int i = 0; i < 7; i++) {
+        std::cout << i << " - " << transportArray[i] << std::endl;
+    }
+
+
+
+
+
+    return 0;
+
     // Общие данные
     int distance = 0;
 

@@ -8,6 +8,7 @@ BootsAT::BootsAT()
     resting1stTime = 10;
     restingOtherTime = 5;
     transportName = "Ботинки-вездеходы";
+    transportId = 1;
     transportType = 1;
 }
 double BootsAT::getTotalRaceTime()

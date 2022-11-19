@@ -17,3 +17,7 @@ int Transport::getType()
 {
 	return transportType;
 }
+int Transport::getId()
+{
+	return transportId;
+}

@@ -17,11 +17,13 @@ protected:
     double resting2ndTime = 0;
     double restingOtherTime = 0;
     std::string transportName = "Транспорт";
+    int transportId = 0;
     int transportType = 1; //Тип транспорта (1 - наземный, 2 - воздушный)
 public:
     bool setDistance(int distance);
     virtual double getTotalRaceTime();
     std::string getName();
     int getType();
+    int getId();
 };
 
