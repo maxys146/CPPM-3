@@ -3,6 +3,7 @@
 MagicCarpet::MagicCarpet()
 {
     speed = 10;
+    transportName = "Ковёр-самолёт";
 }
 double MagicCarpet::getTotalRaceTime()
 {

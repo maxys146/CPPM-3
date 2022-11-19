@@ -3,6 +3,7 @@
 Eagle::Eagle()
 {
     speed = 8;
+    transportName = "Îð¸ë";
 }
 double Eagle::getTotalRaceTime()
 {

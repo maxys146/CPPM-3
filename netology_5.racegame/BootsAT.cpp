@@ -7,6 +7,7 @@ BootsAT::BootsAT()
     timeToRest = 60;
     resting1stTime = 10;
     restingOtherTime = 5;
+    transportName = "Ботинки-вездеходы";
 }
 double BootsAT::getTotalRaceTime()
 {

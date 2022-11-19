@@ -23,31 +23,38 @@ int main()
 
     Transport* camel = new Camel();
     camel->setDistance(distance);
-    std::cout << "Время прохождения дистанции Camel с отдыхом: " << camel->getTotalRaceTime() << std::endl;
+    std::cout << camel->getName() << ". ";
+    std::cout << "Время прохождения дистанции с отдыхом: " << camel->getTotalRaceTime() << std::endl;
 
     Transport* fastCamel = new FastCamel();
     fastCamel->setDistance(distance);
-    std::cout << "Время прохождения дистанции FastCamel с отдыхом: " << fastCamel->getTotalRaceTime() << std::endl;
+    std::cout << fastCamel->getName() << ". ";
+    std::cout << "Время прохождения дистанции с отдыхом: " << fastCamel->getTotalRaceTime() << std::endl;
 
     Transport* centaur = new Centaur();
     centaur->setDistance(distance);
-    std::cout << "Время прохождения дистанции Centaur с отдыхом: " << centaur->getTotalRaceTime() << std::endl;
+    std::cout << centaur->getName() << ". ";
+    std::cout << "Время прохождения дистанции с отдыхом: " << centaur->getTotalRaceTime() << std::endl;
 
     Transport* bootsAT = new BootsAT();
     bootsAT->setDistance(distance);
-    std::cout << "Время прохождения дистанции BootsAT с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
+    std::cout << bootsAT->getName() << ". ";
+    std::cout << "Время прохождения дистанции с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
 
     Transport* magicCarpet = new MagicCarpet();
     magicCarpet->setDistance(distance);
-    std::cout << "Время прохождения дистанции MagicCarpet с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
+    std::cout << magicCarpet->getName() << ". ";
+    std::cout << "Время прохождения дистанции с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
 
     Transport* eagle = new Eagle();
     eagle->setDistance(distance);
-    std::cout << "Время прохождения дистанции Eagle с сокращением: " << eagle->getTotalRaceTime() << std::endl;
+    std::cout << eagle->getName() << ". ";
+    std::cout << "Время прохождения дистанции с сокращением: " << eagle->getTotalRaceTime() << std::endl;
 
     Transport* broom = new Broom();
     broom->setDistance(distance);
-    std::cout << "Время прохождения дистанции Broom с сокращением: " << broom->getTotalRaceTime() << std::endl;
+    std::cout << broom->getName() << ". ";
+    std::cout << "Время прохождения дистанции с сокращением: " << broom->getTotalRaceTime() << std::endl;
 
 }
 

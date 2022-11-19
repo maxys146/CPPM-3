@@ -8,6 +8,7 @@ FastCamel::FastCamel()
     resting1stTime = 5;
     resting2ndTime = 6.5;
     restingOtherTime = 8;
+    transportName = "Верблюд-быстроход";
 }
 double FastCamel::getTotalRaceTime()
 {

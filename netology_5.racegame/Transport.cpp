@@ -9,3 +9,7 @@ double Transport::getTotalRaceTime()
 {
 	return 1;
 }
+std::string Transport::getName()
+{
+	return transportName;
+}

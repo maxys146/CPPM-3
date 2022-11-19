@@ -4,6 +4,7 @@
 Broom::Broom()
 {
     speed = 20;
+    transportName = "Метла";
 }
 double Broom::getTotalRaceTime()
 {

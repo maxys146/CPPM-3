@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 class Transport
 {
 protected:
@@ -14,8 +16,10 @@ protected:
     double resting1stTime = 0;
     double resting2ndTime = 0;
     double restingOtherTime = 0;
+    std::string transportName = "Транспорт";
 public:
     bool setDistance(int distance);
     virtual double getTotalRaceTime();
+    std::string getName();
 };
 

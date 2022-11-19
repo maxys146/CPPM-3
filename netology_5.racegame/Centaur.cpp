@@ -6,6 +6,7 @@ Centaur::Centaur()
     speed = 15;
     timeToRest = 8;
     restingOtherTime = 2;
+    transportName = "Кентавр";
 }
 double Centaur::getTotalRaceTime()
 {
