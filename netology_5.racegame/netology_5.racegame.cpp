@@ -10,15 +10,64 @@
 #include "Eagle.h"
 #include "Broom.h"
 
+void printTransport()
+{
+    std::cout << "1. Ботинки-вездеходы" << std::endl;
+    std::cout << "2. Метла" << std::endl;
+    std::cout << "3. Верблюд" << std::endl;
+    std::cout << "4. Кентавр" << std::endl;
+    std::cout << "5. Орёл" << std::endl;
+    std::cout << "6. Верблюд-быстроход" << std::endl;
+    std::cout << "7. Ковёр-самолёт" << std::endl;
+    std::cout << "0. Закончить регистрацию" << std::endl;
+}
+
 int main()
 {
     setlocale(LC_ALL, "Russian");
 
 
-    int transportArray[7]{};
+    int transportForRaceArray[7]{};
+    int userInput = 0;
+    printTransport();
+
+    while (true)
+    {
+        std::cin >> userInput;
+        if (userInput != 0)
+        {
+            for (int i = 0; i < 7; i++) {
+                if (transportForRaceArray[i] == userInput)
+                {
+                    // Такой транспорт есть, выходим
+                    std::cout << "// Такой транспорт есть, выходим\n";
+                    break;
+                }
+                else if (transportForRaceArray[i] == 0)
+                {
+                    // Пустая ячейка, помещаем транспорт сюда и выходим
+                    std::cout << "// Пустая ячейка, помещаем транспорт сюда и выходим\n";
+                    transportForRaceArray[i] = userInput;
+                    break;
+                }
+                std::cout << i << " - " << transportForRaceArray[i] << std::endl;
+                
+            }
+            std::cout << "// Цикл FOR завершен.\nСодержимое массива" << std::endl;
+            for (int i = 0; i < 7; i++) {
+                std::cout << i << " - " << transportForRaceArray[i] << std::endl;
+            }
+
+            std::cout << "// --------------------------------------" << std::endl;
+        }
+        else
+        {
+            break;
+        }
+    }
 
     for (int i = 0; i < 7; i++) {
-        std::cout << i << " - " << transportArray[i] << std::endl;
+        std::cout << i << " - " << transportForRaceArray[i] << std::endl;
     }
 
 
