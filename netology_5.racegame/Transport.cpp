@@ -13,3 +13,7 @@ std::string Transport::getName()
 {
 	return transportName;
 }
+int Transport::getType()
+{
+	return transportType;
+}

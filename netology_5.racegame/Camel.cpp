@@ -8,6 +8,7 @@ Camel::Camel()
 	resting1stTime = 5;
 	restingOtherTime = 8;
     transportName = "Верблюд";
+    transportType = 1;
 }
 double Camel::getTotalRaceTime()
 {

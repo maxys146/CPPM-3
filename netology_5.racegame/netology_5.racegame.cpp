@@ -23,37 +23,37 @@ int main()
 
     Transport* camel = new Camel();
     camel->setDistance(distance);
-    std::cout << camel->getName() << ". ";
+    std::cout << camel->getName() << "(" << camel->getType() << "). ";
     std::cout << "Время прохождения дистанции с отдыхом: " << camel->getTotalRaceTime() << std::endl;
 
     Transport* fastCamel = new FastCamel();
     fastCamel->setDistance(distance);
-    std::cout << fastCamel->getName() << ". ";
+    std::cout << fastCamel->getName() << "(" << fastCamel->getType() << "). ";
     std::cout << "Время прохождения дистанции с отдыхом: " << fastCamel->getTotalRaceTime() << std::endl;
 
     Transport* centaur = new Centaur();
     centaur->setDistance(distance);
-    std::cout << centaur->getName() << ". ";
+    std::cout << centaur->getName() << "(" << centaur->getType() << "). ";
     std::cout << "Время прохождения дистанции с отдыхом: " << centaur->getTotalRaceTime() << std::endl;
 
     Transport* bootsAT = new BootsAT();
     bootsAT->setDistance(distance);
-    std::cout << bootsAT->getName() << ". ";
+    std::cout << bootsAT->getName() << "(" << bootsAT->getType() << "). ";
     std::cout << "Время прохождения дистанции с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
 
     Transport* magicCarpet = new MagicCarpet();
     magicCarpet->setDistance(distance);
-    std::cout << magicCarpet->getName() << ". ";
+    std::cout << magicCarpet->getName() << "(" << magicCarpet->getType() << "). ";
     std::cout << "Время прохождения дистанции с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
 
     Transport* eagle = new Eagle();
     eagle->setDistance(distance);
-    std::cout << eagle->getName() << ". ";
+    std::cout << eagle->getName() << "(" << eagle->getType() << "). ";
     std::cout << "Время прохождения дистанции с сокращением: " << eagle->getTotalRaceTime() << std::endl;
 
     Transport* broom = new Broom();
     broom->setDistance(distance);
-    std::cout << broom->getName() << ". ";
+    std::cout << broom->getName() << "(" << broom->getType() << "). ";
     std::cout << "Время прохождения дистанции с сокращением: " << broom->getTotalRaceTime() << std::endl;
 
 }
