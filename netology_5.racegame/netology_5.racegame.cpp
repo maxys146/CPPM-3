@@ -34,7 +34,7 @@ int main()
     while (true)
     {
         std::cin >> userInput;
-        if (userInput != 0)
+        if (userInput >= 1 && userInput <= 7)
         {
             for (int i = 0; i < 7; i++) {
                 if (transportForRaceArray[i] == userInput)
@@ -57,14 +57,34 @@ int main()
             for (int i = 0; i < 7; i++) {
                 std::cout << i << " - " << transportForRaceArray[i] << std::endl;
             }
-
             std::cout << "// --------------------------------------" << std::endl;
+            // Проверяем заполнен ли массив полностью.
+            if (transportForRaceArray[6] != 0)
+            {
+                std::cout << "// Массив заполнен, выходим.\n";
+                break;
+            }
+        }
+        else if (userInput == 0)
+        {
+            // Проверяем если хотя бы 2 элемента в массиве.
+            if (transportForRaceArray[1] != 0)
+            {
+                std::cout << "// Второй элемент в массиве есть, выходим.\n";
+                break;
+            }
+            else
+            {
+                std::cout << "// Второй элемент в массиве отсутствует, выберите подходящее ТС.\n";
+            }
         }
         else
         {
-            break;
+            std::cout << "// Неверный ввод, попробуйте еще раз." << std::endl;
         }
     }
+
+    std::cout << "// Конечный результат после всех выборов.\n";
 
     for (int i = 0; i < 7; i++) {
         std::cout << i << " - " << transportForRaceArray[i] << std::endl;
