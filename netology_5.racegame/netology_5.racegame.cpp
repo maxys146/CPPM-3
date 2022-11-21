@@ -58,6 +58,7 @@ int main()
         std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
         std::cin >> userInput;
         system("cls");
+        // TODO Перенести сюда создание массива указателей на объекты
         if (userInput >= 1 && userInput <= 7)
         {
             for (int i = 0; i < 7; i++) {
@@ -138,7 +139,7 @@ int main()
     }
     std::cout << "// Подсчет результатов.\n";
 
-    Transport** transport = new Transport * [7];
+    Transport** transport = new Transport * [7] {};
 
     for (int i = 0; i < 7; i++) {
         if (transportForRaceArray[i] != 0) {
