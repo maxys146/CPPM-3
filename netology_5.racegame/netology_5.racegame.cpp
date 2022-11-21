@@ -27,94 +27,104 @@ int main()
     setlocale(LC_ALL, "Russian");
 
 
-    int transportForRaceArray[7]{};
+    // Общие данные
     int userInput = 0;
-    std::string vehicle[7]
-    {
-        "Ботинки-вездеходы",
-        "Метла",
-        "Верблюд",
-        "Кентавр",
-        "Орёл",
-        "Верблюд-быстроход",
-        "Ковёр-самолёт"
-    };
-    //printTransport();
-
-        // Общие данные
     int distance = 0;
 
     //std::cout << "Укажите длину дистанции (должна быть положительна): ";
     //std::cin >> distance;
     distance = 4500;
-
+    // TODO Сделать выбор типа гонки
     std::cout << "Гонка для TODO транспорта. Растояние: " << distance << std::endl;
 
+    Transport** transport = new Transport * [7] {};
+    
     while (true)
     {
-        
-
         printTransport();
         std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
         std::cin >> userInput;
         system("cls");
-        // TODO Перенести сюда создание массива указателей на объекты
         if (userInput >= 1 && userInput <= 7)
         {
             for (int i = 0; i < 7; i++) {
-                if (transportForRaceArray[i] == userInput)
+                if (transport[i] != 0)
                 {
-                    // Такой транспорт есть, выходим
-                    std::cout << vehicle[userInput - 1] << " уже зарегистрирован.\n";
-                    break;
+                    if (transport[i]->getId() == userInput)
+                    {
+                        // Такой транспорт есть, выходим
+                        std::cout << transport[i]->getName() << " уже зарегистрирован.\n";
+                        break;
+                    }
                 }
-                else if (transportForRaceArray[i] == 0)
+                else if (transport[i] == 0)
                 {
                     // Пустая ячейка, помещаем транспорт сюда и выходим
-                    std::cout << vehicle[userInput - 1] << " успешно зарегистрирован.\n";
-                    transportForRaceArray[i] = userInput;
+                    switch (userInput) {
+                    case 1: {
+                        transport[i] = new BootsAT();
+                        break;
+                    }
+                    case 2: {
+                        transport[i] = new Broom();
+                        break;
+                    }
+                    case 3: {
+                        transport[i] = new Camel();
+                        break;
+                    }
+                    case 4: {
+                        transport[i] = new Centaur();
+                        break;
+                    }
+                    case 5: {
+                        transport[i] = new Eagle();
+                        break;
+                    }
+                    case 6: {
+                        transport[i] = new FastCamel();
+                        break;
+                    }
+                    case 7: {
+                        transport[i] = new MagicCarpet();
+                        break;
+                    }
+                    default:
+                        break;
+                    }
+                    std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << ") успешно зарегистрирован.\n";
                     break;
                 }
-                
-            }
-            //std::cout << "// Цикл FOR завершен.\nСодержимое массива" << std::endl;
-            //for (int i = 0; i < 7; i++) {
-            //    std::cout << i << " - " << transportForRaceArray[i];
-            //    if (transportForRaceArray[i] != 0) {
-            //        std::cout << " - " << vehicle[transportForRaceArray[i] - 1];
-            //    }
-            //    std::cout << std::endl;
-            //}
-            //std::cout << "// --------------------------------------" << std::endl;
 
-            if (transportForRaceArray[0] != 0)
+            }
+
+            if (transport[0] != 0)
             {
                 std::cout << "Зарегистрированные транспортные средства: ";
                 for (int i = 0; i < 7; i++) {
-                    if (transportForRaceArray[i] != 0) {
+                    if (transport[i] != 0) {
                         if (i != 0) {
                             std::cout << ", ";
                         }
-                        std::cout << vehicle[transportForRaceArray[i] - 1];
+                        std::cout << transport[i]->getName();
                     }
                 }
             }
             std::cout << std::endl;
 
-            //printTransport();
             // Проверяем заполнен ли массив полностью.
-            if (transportForRaceArray[6] != 0)
+            if (transport[6] != 0)
             {
-                std::cout << "// Массив заполнен, выходим.\n";
+                std::cout << "Зарегистрированы все транспортные средства.\n";
                 break;
             }
         }
         else if (userInput == 0)
         {
             // Проверяем если хотя бы 2 элемента в массиве.
-            if (transportForRaceArray[1] != 0)
+            if (transport[1] != 0)
             {
-                std::cout << "// В массиве 2 элемента и более, выходим.\n";
+                // В массиве 2 элемента и более, выходим.
                 break;
             }
             else
@@ -130,107 +140,18 @@ int main()
 
     std::cout << "// Конечный результат после всех выборов.\n";
 
-    for (int i = 0; i < 7; i++) {
-        std::cout << i << " - " << transportForRaceArray[i];
-        if (transportForRaceArray[i] != 0) {
-            std::cout << " - " << vehicle[transportForRaceArray[i] - 1];
-        }
-        std::cout << std::endl;
-    }
-    std::cout << "// Подсчет результатов.\n";
-
-    Transport** transport = new Transport * [7] {};
+    // TODO Сделать сортировку результатов
 
     for (int i = 0; i < 7; i++) {
-        if (transportForRaceArray[i] != 0) {
-            switch (transportForRaceArray[i]) {
-            case 1: {
-                transport[i] = new BootsAT();
-                break;
-            }
-            case 2: {
-                transport[i] = new Broom();
-                break;
-            }
-            case 3: {
-                transport[i] = new Camel();
-                break;
-            }
-            case 4: {
-                transport[i] = new Centaur();
-                break;
-            }
-            case 5: {
-                transport[i] = new Eagle();
-                break;
-            }
-            case 6: {
-                transport[i] = new FastCamel();
-                break;
-            }
-            case 7: {
-                transport[i] = new MagicCarpet();
-                break;
-            }
-            default:
-                break;
-            }
+        if (transport[i] != 0) {
             transport[i]->setDistance(distance);
             std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << "). ";
             std::cout << "Время прохождения дистанции с отдыхом: " << transport[i]->getTotalRaceTime() << std::endl;
+            std::cout << std::endl;
         }
-
     }
-
-
-
-
-
-
+ 
     return 0;
-
-    // Общие данные
-    //int distance = 0;
-
-    //std::cout << "Укажите длину дистанции (должна быть положительна): ";
-    //std::cin >> distance;
-    ////distance = 99000;
-
-    //Transport* camel = new Camel();
-    //camel->setDistance(distance);
-    //std::cout << camel->getName() << "(" << camel->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с отдыхом: " << camel->getTotalRaceTime() << std::endl;
-
-    //Transport* fastCamel = new FastCamel();
-    //fastCamel->setDistance(distance);
-    //std::cout << fastCamel->getName() << "(" << fastCamel->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с отдыхом: " << fastCamel->getTotalRaceTime() << std::endl;
-
-    //Transport* centaur = new Centaur();
-    //centaur->setDistance(distance);
-    //std::cout << centaur->getName() << "(" << centaur->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с отдыхом: " << centaur->getTotalRaceTime() << std::endl;
-
-    //Transport* bootsAT = new BootsAT();
-    //bootsAT->setDistance(distance);
-    //std::cout << bootsAT->getName() << "(" << bootsAT->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
-
-    //Transport* magicCarpet = new MagicCarpet();
-    //magicCarpet->setDistance(distance);
-    //std::cout << magicCarpet->getName() << "(" << magicCarpet->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
-
-    //Transport* eagle = new Eagle();
-    //eagle->setDistance(distance);
-    //std::cout << eagle->getName() << "(" << eagle->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с сокращением: " << eagle->getTotalRaceTime() << std::endl;
-
-    //Transport* broom = new Broom();
-    //broom->setDistance(distance);
-    //std::cout << broom->getName() << "(" << broom->getType() << "). ";
-    //std::cout << "Время прохождения дистанции с сокращением: " << broom->getTotalRaceTime() << std::endl;
-
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
