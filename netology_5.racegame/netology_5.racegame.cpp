@@ -39,39 +39,45 @@ int main()
         "Верблюд-быстроход",
         "Ковёр-самолёт"
     };
-    std::cout << vehicle[3] << "\n";
-    printTransport();
+    //printTransport();
+
+    std::cout << "Гонка для TODO транспорта. Растояние: TODO";
 
     while (true)
     {
+        
+
+        printTransport();
+        std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
         std::cin >> userInput;
+        system("cls");
         if (userInput >= 1 && userInput <= 7)
         {
             for (int i = 0; i < 7; i++) {
                 if (transportForRaceArray[i] == userInput)
                 {
                     // Такой транспорт есть, выходим
-                    std::cout << "// Такой транспорт есть, выходим\n";
+                    std::cout << vehicle[userInput - 1] << " уже зарегистрирован.\n";
                     break;
                 }
                 else if (transportForRaceArray[i] == 0)
                 {
                     // Пустая ячейка, помещаем транспорт сюда и выходим
-                    std::cout << "// Пустая ячейка, помещаем транспорт сюда и выходим\n";
+                    std::cout << vehicle[userInput - 1] << " успешно зарегистрирован.\n";
                     transportForRaceArray[i] = userInput;
                     break;
                 }
                 
             }
-            std::cout << "// Цикл FOR завершен.\nСодержимое массива" << std::endl;
-            for (int i = 0; i < 7; i++) {
-                std::cout << i << " - " << transportForRaceArray[i];
-                if (transportForRaceArray[i] != 0) {
-                    std::cout << " - " << vehicle[transportForRaceArray[i] - 1];
-                }
-                std::cout << std::endl;
-            }
-            std::cout << "// --------------------------------------" << std::endl;
+            //std::cout << "// Цикл FOR завершен.\nСодержимое массива" << std::endl;
+            //for (int i = 0; i < 7; i++) {
+            //    std::cout << i << " - " << transportForRaceArray[i];
+            //    if (transportForRaceArray[i] != 0) {
+            //        std::cout << " - " << vehicle[transportForRaceArray[i] - 1];
+            //    }
+            //    std::cout << std::endl;
+            //}
+            //std::cout << "// --------------------------------------" << std::endl;
 
             if (transportForRaceArray[0] != 0)
             {
@@ -87,7 +93,7 @@ int main()
             }
             std::cout << std::endl;
 
-            printTransport();
+            //printTransport();
             // Проверяем заполнен ли массив полностью.
             if (transportForRaceArray[6] != 0)
             {
@@ -105,7 +111,7 @@ int main()
             }
             else
             {
-                std::cout << "// Второй элемент в массиве отсутствует, выберите подходящее ТС.\n";
+                std::cout << "Должно быть зарегистрировано хотя бы 2 транспортных средства.\n";
             }
         }
         else
