@@ -147,10 +147,11 @@ int main()
             transport[i]->setDistance(distance);
             std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << "). ";
             std::cout << "Время прохождения дистанции с отдыхом: " << transport[i]->getTotalRaceTime() << std::endl;
-            std::cout << std::endl;
         }
     }
  
+    // TODO очистить массив с объектами
+    // TODO очищать массив после завершения гонки перед следующей
     return 0;
 }
 
