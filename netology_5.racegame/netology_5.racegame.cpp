@@ -29,6 +29,17 @@ int main()
 
     int transportForRaceArray[7]{};
     int userInput = 0;
+    std::string vehicle[7]
+    {
+        "Ботинки-вездеходы",
+        "Метла",
+        "Верблюд",
+        "Кентавр",
+        "Орёл",
+        "Верблюд-быстроход",
+        "Ковёр-самолёт"
+    };
+    std::cout << vehicle[3] << "\n";
     printTransport();
 
     while (true)
@@ -50,14 +61,33 @@ int main()
                     transportForRaceArray[i] = userInput;
                     break;
                 }
-                std::cout << i << " - " << transportForRaceArray[i] << std::endl;
                 
             }
             std::cout << "// Цикл FOR завершен.\nСодержимое массива" << std::endl;
             for (int i = 0; i < 7; i++) {
-                std::cout << i << " - " << transportForRaceArray[i] << std::endl;
+                std::cout << i << " - " << transportForRaceArray[i];
+                if (transportForRaceArray[i] != 0) {
+                    std::cout << " - " << vehicle[transportForRaceArray[i] - 1];
+                }
+                std::cout << std::endl;
             }
             std::cout << "// --------------------------------------" << std::endl;
+
+            if (transportForRaceArray[0] != 0)
+            {
+                std::cout << "Зарегистрированные транспортные средства: ";
+                for (int i = 0; i < 7; i++) {
+                    if (transportForRaceArray[i] != 0) {
+                        if (i != 0) {
+                            std::cout << ", ";
+                        }
+                        std::cout << vehicle[transportForRaceArray[i] - 1];
+                    }
+                }
+            }
+            std::cout << std::endl;
+
+            printTransport();
             // Проверяем заполнен ли массив полностью.
             if (transportForRaceArray[6] != 0)
             {
@@ -70,7 +100,7 @@ int main()
             // Проверяем если хотя бы 2 элемента в массиве.
             if (transportForRaceArray[1] != 0)
             {
-                std::cout << "// Второй элемент в массиве есть, выходим.\n";
+                std::cout << "// В массиве 2 элемента и более, выходим.\n";
                 break;
             }
             else
@@ -87,7 +117,11 @@ int main()
     std::cout << "// Конечный результат после всех выборов.\n";
 
     for (int i = 0; i < 7; i++) {
-        std::cout << i << " - " << transportForRaceArray[i] << std::endl;
+        std::cout << i << " - " << transportForRaceArray[i];
+        if (transportForRaceArray[i] != 0) {
+            std::cout << " - " << vehicle[transportForRaceArray[i] - 1];
+        }
+        std::cout << std::endl;
     }
 
 
