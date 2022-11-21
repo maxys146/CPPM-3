@@ -138,69 +138,45 @@ int main()
     }
     std::cout << "// Подсчет результатов.\n";
 
-    int distanceForVehicleArray[7]{};
+    Transport** transport = new Transport * [7];
+
     for (int i = 0; i < 7; i++) {
         if (transportForRaceArray[i] != 0) {
             switch (transportForRaceArray[i]) {
             case 1: {
-                std::cout << i << " Ботинки-вездеходы" << std::endl;
-                Transport* bootsAT = new BootsAT();
-                bootsAT->setDistance(distance);
-                std::cout << bootsAT->getName() << "(" << bootsAT->getType() << "). ";
-                std::cout << "Время прохождения дистанции с отдыхом: " << bootsAT->getTotalRaceTime() << std::endl;
+                transport[i] = new BootsAT();
                 break;
             }
             case 2: {
-                std::cout << i << " Метла" << std::endl;
-                Transport* broom = new Broom();
-                broom->setDistance(distance);
-                std::cout << broom->getName() << "(" << broom->getType() << "). ";
-                std::cout << "Время прохождения дистанции с сокращением: " << broom->getTotalRaceTime() << std::endl;
+                transport[i] = new Broom();
                 break;
             }
             case 3: {
-                std::cout << i << " Верблюд" << std::endl;
-                Transport* camel = new Camel();
-                camel->setDistance(distance);
-                std::cout << camel->getName() << "(" << camel->getType() << "). ";
-                std::cout << "Время прохождения дистанции с отдыхом: " << camel->getTotalRaceTime() << std::endl;
+                transport[i] = new Camel();
                 break;
             }
             case 4: {
-                std::cout << i << " Кентавр" << std::endl;
-                Transport* centaur = new Centaur();
-                centaur->setDistance(distance);
-                std::cout << centaur->getName() << "(" << centaur->getType() << "). ";
-                std::cout << "Время прохождения дистанции с отдыхом: " << centaur->getTotalRaceTime() << std::endl;
+                transport[i] = new Centaur();
                 break;
             }
             case 5: {
-                std::cout << i << " Орёл" << std::endl;
-                Transport* eagle = new Eagle();
-                eagle->setDistance(distance);
-                std::cout << eagle->getName() << "(" << eagle->getType() << "). ";
-                std::cout << "Время прохождения дистанции с сокращением: " << eagle->getTotalRaceTime() << std::endl;
+                transport[i] = new Eagle();
                 break;
             }
             case 6: {
-                std::cout << i << " Верблюд-быстроход" << std::endl;
-                Transport* fastCamel = new FastCamel();
-                fastCamel->setDistance(distance);
-                std::cout << fastCamel->getName() << "(" << fastCamel->getType() << "). ";
-                std::cout << "Время прохождения дистанции с отдыхом: " << fastCamel->getTotalRaceTime() << std::endl;
+                transport[i] = new FastCamel();
                 break;
             }
             case 7: {
-                std::cout << i << " Ковёр-самолёт" << std::endl;
-                Transport* magicCarpet = new MagicCarpet();
-                magicCarpet->setDistance(distance);
-                std::cout << magicCarpet->getName() << "(" << magicCarpet->getType() << "). ";
-                std::cout << "Время прохождения дистанции с сокращением: " << magicCarpet->getTotalRaceTime() << std::endl;
+                transport[i] = new MagicCarpet();
                 break;
             }
             default:
                 break;
             }
+            transport[i]->setDistance(distance);
+            std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << "). ";
+            std::cout << "Время прохождения дистанции с отдыхом: " << transport[i]->getTotalRaceTime() << std::endl;
         }
 
     }
