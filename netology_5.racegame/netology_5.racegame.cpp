@@ -22,6 +22,22 @@ void printTransport()
     std::cout << "0. Закончить регистрацию" << std::endl;
 }
 
+void printRegisteredTransport(Transport* transport[7])
+{
+    if (transport[0] != 0)
+    {
+        std::cout << "Зарегистрированные транспортные средства: ";
+        for (int i = 0; i < 7; i++) {
+            if (transport[i] != 0) {
+                if (i != 0) {
+                    std::cout << ", ";
+                }
+                std::cout << transport[i]->getName();
+            }
+        }
+    }
+}
+
 int main()
 {
     setlocale(LC_ALL, "Russian");
@@ -34,20 +50,21 @@ int main()
     //std::cout << "Укажите длину дистанции (должна быть положительна): ";
     //std::cin >> distance;
     distance = 4500;
+    // TODO Сделать бесконечный цикл для игры с выходом по 0
     // TODO Сделать выбор типа гонки
     std::cout << "Гонка для TODO транспорта. Растояние: " << distance << std::endl;
 
     Transport** transport = new Transport * [7] {};
     
-    while (true)
+    while (true) // Цикл регистрации ТС в гонку
     {
         printTransport();
         std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
         std::cin >> userInput;
         system("cls");
-        if (userInput >= 1 && userInput <= 7)
+        if (userInput >= 1 && userInput <= 7) // Проверка корректности вида ТС
         {
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 7; i++) { // Цикл для проверки что такое ТС уже зарегистрировано, если нет, добавляем ТС в массив
                 if (transport[i] != 0)
                 {
                     if (transport[i]->getId() == userInput)
@@ -97,29 +114,17 @@ int main()
                 }
 
             }
-
-            if (transport[0] != 0)
-            {
-                std::cout << "Зарегистрированные транспортные средства: ";
-                for (int i = 0; i < 7; i++) {
-                    if (transport[i] != 0) {
-                        if (i != 0) {
-                            std::cout << ", ";
-                        }
-                        std::cout << transport[i]->getName();
-                    }
-                }
-            }
+                        
+            printRegisteredTransport(transport); // Вывод списка ТС.
             std::cout << std::endl;
 
-            // Проверяем заполнен ли массив полностью.
-            if (transport[6] != 0)
+            if (transport[6] != 0) // Проверяем заполнен ли массив ТС полностью.
             {
                 std::cout << "Зарегистрированы все транспортные средства.\n";
                 break;
             }
         }
-        else if (userInput == 0)
+        else if (userInput == 0) // Проверяем условия выхода из регистрации ТС
         {
             // Проверяем если хотя бы 2 элемента в массиве.
             if (transport[1] != 0)
