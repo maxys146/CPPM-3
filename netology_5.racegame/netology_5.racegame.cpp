@@ -46,6 +46,7 @@ int main()
     // Общие данные
     int userInput = 0;
     int distance = 0;
+    int totalTransportCount = 0;
 
     //std::cout << "Укажите длину дистанции (должна быть положительна): ";
     //std::cin >> distance;
@@ -77,6 +78,7 @@ int main()
                 else if (transport[i] == 0)
                 {
                     // Пустая ячейка, помещаем транспорт сюда и выходим
+                    totalTransportCount++;
                     switch (userInput) {
                     case 1: {
                         transport[i] = new BootsAT();
@@ -145,16 +147,32 @@ int main()
 
     std::cout << "// Конечный результат после всех выборов.\n";
 
-    // TODO Сделать сортировку результатов
 
-    for (int i = 0; i < 7; i++) {
-        if (transport[i] != 0) {
+    for (int i = 0; i < totalTransportCount; i++) { // Устанавливаем дистанцию для всех зарегистрированных ТС.
             transport[i]->setDistance(distance);
-            std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << "). ";
-            std::cout << "Время прохождения дистанции с отдыхом: " << transport[i]->getTotalRaceTime() << std::endl;
-        }
     }
  
+    bool swapped = false;
+
+    do
+    {
+        swapped = false;
+        for (int i = 0; i < (totalTransportCount - 1); i++)
+        {
+            if (transport[i + 1]->getTotalRaceTime() < transport[i]->getTotalRaceTime())
+            {
+                std::swap(transport[i + 1], transport[i]);
+                swapped = true;
+            }
+        }
+    } while (swapped);
+
+    for (int i = 0; i < totalTransportCount; i++) {
+            transport[i]->setDistance(distance);
+            std::cout << (i + 1) << ". " << transport[i]->getName() << ". Время: " << transport[i]->getTotalRaceTime();
+            std::cout << "     (тип " << transport[i]->getType() << "). " << std::endl;
+    }
+
     // TODO очистить массив с объектами
     // TODO очищать массив после завершения гонки перед следующей
     return 0;
