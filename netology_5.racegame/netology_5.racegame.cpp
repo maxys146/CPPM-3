@@ -38,11 +38,25 @@ void printRegisteredTransport(Transport* transport[7])
     }
 }
 
+std::string getTransportType(int transportType)
+{
+    switch (transportType)
+    {
+    case 1:
+        return "наземного";
+    case 2:
+        return "воздушного";
+    case 3:
+        return "наземного и воздушного";
+    }
+}
+
 int main()
 {
     setlocale(LC_ALL, "Russian");
 
     // TODO Сделать проект на основе Makefile
+    // TODO Перенести классы в библиотеку
 
     // Общие данные
     int userInput = 0;
@@ -111,7 +125,7 @@ int main()
             {
                 while (true) // Цикл регистрации ТС в гонку
                 {
-                    std::cout << "Гонка для TODO (тип " << raceType << ") транспорта. Растояние: " << distance << std::endl; // TODO Писать тип транспорта
+                    std::cout << "Гонка для " << getTransportType(raceType) << " транспорта. Растояние: " << distance << std::endl;
                     printTransport();
                     std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
                     std::cin >> userInput;
