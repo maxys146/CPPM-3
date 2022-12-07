@@ -46,7 +46,7 @@ int main()
 
     // Общие данные
     int userInput = 0;
-    int distance = 0; // TODO Только положительное число
+    int distance = 0;
     int totalTransportCount = 0;
     int raceType;
     bool gameContinue = true;
@@ -54,31 +54,46 @@ int main()
     std::cout << "Добро пожаловать в гоночный симулятор!\n";
     while (gameContinue == true)
     {
-
-        //std::cout << "Укажите длину дистанции (должна быть положительна): ";
-        //std::cin >> distance;
-        // TODO Сделать проверку на то что число положительное.
-        distance = 4500;
-        // TODO Сделать выбор типа гонки
+        // Выбор типа гонки
         raceType = 0;
         while (true)
         {
             std::cout << "1. Гонка для наземного транспорта\n";
             std::cout << "2. Гонка для воздушного транспорта\n";
             std::cout << "3. Гонка для наземного и воздушного транспорта\n";
+            std::cout << "Выберите тип гонки:";
             std::cin >> raceType;
             if (raceType > 0 && raceType < 4)
             {
                 break;
             }
         }
-        std::cout << "Гонка для TODO (тип " << raceType << ") транспорта.Растояние: " << distance << std::endl;
 
+        // Выборр дистанции
+        std::cout << "Укажите длину дистанции (должна быть положительна): ";
+        std::cin >> distance;
+        while (true)
+        {
+            if (distance < 1)
+            {
+                std::cout << "Неверный ввод, попробуйте еще раз:";
+                std::cin >> distance;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        // TODO Сделать выбор регистрация-гонка
+
+        // Создаем массив для объектов ТС
         Transport** transport = new Transport * [7] {};
         totalTransportCount = 0;
 
         while (true) // Цикл регистрации ТС в гонку
         {
+            std::cout << "Гонка для TODO (тип " << raceType << ") транспорта. Растояние: " << distance << std::endl;
             printTransport();
             std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
             std::cin >> userInput;
@@ -134,7 +149,7 @@ int main()
                             default:
                                 break;
                             }
-                            std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << ") успешно зарегистрирован.\n";
+                            std::cout << transport[i]->getName() << " успешно зарегистрирован.\n";
                             break;
                         }
 
@@ -143,12 +158,16 @@ int main()
                     printRegisteredTransport(transport); // Вывод списка ТС.
                     std::cout << std::endl;
 
-                    // TODO Сделать проверки для 3 типов транспорта
-                    if (transport[6] != 0) // Проверяем заполнен ли массив ТС полностью.
+                    if ((raceType == 1 && transport[3] != 0) || (raceType == 2 && transport[2] != 0) || (raceType == 3 && transport[6] != 0)) // Проверяем заполнен ли массив ТС полностью.
                     {
                         std::cout << "Зарегистрированы все транспортные средства.\n";
                         break;
                     }
+                }
+                else
+                {
+                    system("cls");
+                    std::cout << "Попытка зарегистрировать неправильный тип транспортного средства!\n";
                 }
             }
             else if (userInput == 0) // Проверяем условия выхода из регистрации ТС
@@ -194,8 +213,7 @@ int main()
         } while (swapped);
 
         for (int i = 0; i < totalTransportCount; i++) {
-            std::cout << (i + 1) << ". " << transport[i]->getName() << ". Время: " << transport[i]->getTotalRaceTime();
-            std::cout << "     (тип " << transport[i]->getType() << "). " << std::endl;
+            std::cout << (i + 1) << ". " << transport[i]->getName() << ". Время: " << transport[i]->getTotalRaceTime() << std::endl;
         }
 
         delete [] transport;
@@ -223,9 +241,6 @@ int main()
             }
         }
     }
-
-    // TODO очистить массив с объектами
-    // TODO очищать массив после завершения гонки перед следующей
     return 0;
 }
 
