@@ -60,6 +60,7 @@ int main()
         std::cout << "Гонка для TODO транспорта. Растояние: " << distance << std::endl;
 
         Transport** transport = new Transport * [7] {};
+        totalTransportCount = 0;
 
         while (true) // Цикл регистрации ТС в гонку
         {
@@ -173,10 +174,11 @@ int main()
         } while (swapped);
 
         for (int i = 0; i < totalTransportCount; i++) {
-            transport[i]->setDistance(distance);
             std::cout << (i + 1) << ". " << transport[i]->getName() << ". Время: " << transport[i]->getTotalRaceTime();
             std::cout << "     (тип " << transport[i]->getType() << "). " << std::endl;
         }
+
+        delete [] transport;
 
         while (true)
         {
