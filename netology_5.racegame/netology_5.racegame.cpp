@@ -48,130 +48,158 @@ int main()
     int userInput = 0;
     int distance = 0;
     int totalTransportCount = 0;
+    bool gameContinue = true;
 
-    //std::cout << "Укажите длину дистанции (должна быть положительна): ";
-    //std::cin >> distance;
-    distance = 4500;
-    // TODO Сделать бесконечный цикл для игры с выходом по 0
-    // TODO Сделать выбор типа гонки
-    std::cout << "Гонка для TODO транспорта. Растояние: " << distance << std::endl;
-
-    Transport** transport = new Transport * [7] {};
-    
-    while (true) // Цикл регистрации ТС в гонку
+    while (gameContinue == true)
     {
-        printTransport();
-        std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
-        std::cin >> userInput;
-        system("cls");
-        if (userInput >= 1 && userInput <= 7) // Проверка корректности вида ТС
+
+        //std::cout << "Укажите длину дистанции (должна быть положительна): ";
+        //std::cin >> distance;
+        distance = 4500;
+        // TODO Сделать выбор типа гонки
+        std::cout << "Гонка для TODO транспорта. Растояние: " << distance << std::endl;
+
+        Transport** transport = new Transport * [7] {};
+
+        while (true) // Цикл регистрации ТС в гонку
         {
-            for (int i = 0; i < 7; i++) { // Цикл для проверки что такое ТС уже зарегистрировано, если нет, добавляем ТС в массив
-                if (transport[i] != 0)
-                {
-                    if (transport[i]->getId() == userInput)
+            printTransport();
+            std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
+            std::cin >> userInput;
+            system("cls");
+            if (userInput >= 1 && userInput <= 7) // Проверка корректности вида ТС
+            {
+                for (int i = 0; i < 7; i++) { // Цикл для проверки что такое ТС уже зарегистрировано, если нет, добавляем ТС в массив
+                    if (transport[i] != 0)
                     {
-                        // Такой транспорт есть, выходим
-                        std::cout << transport[i]->getName() << " уже зарегистрирован.\n";
+                        if (transport[i]->getId() == userInput)
+                        {
+                            // Такой транспорт есть, выходим
+                            std::cout << transport[i]->getName() << " уже зарегистрирован.\n";
+                            break;
+                        }
+                    }
+                    else if (transport[i] == 0)
+                    {
+                        // Пустая ячейка, помещаем транспорт сюда и выходим
+                        totalTransportCount++;
+                        switch (userInput) {
+                        case 1: {
+                            transport[i] = new BootsAT();
+                            break;
+                        }
+                        case 2: {
+                            transport[i] = new Broom();
+                            break;
+                        }
+                        case 3: {
+                            transport[i] = new Camel();
+                            break;
+                        }
+                        case 4: {
+                            transport[i] = new Centaur();
+                            break;
+                        }
+                        case 5: {
+                            transport[i] = new Eagle();
+                            break;
+                        }
+                        case 6: {
+                            transport[i] = new FastCamel();
+                            break;
+                        }
+                        case 7: {
+                            transport[i] = new MagicCarpet();
+                            break;
+                        }
+                        default:
+                            break;
+                        }
+                        std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << ") успешно зарегистрирован.\n";
                         break;
                     }
+
                 }
-                else if (transport[i] == 0)
+
+                printRegisteredTransport(transport); // Вывод списка ТС.
+                std::cout << std::endl;
+
+                if (transport[6] != 0) // Проверяем заполнен ли массив ТС полностью.
                 {
-                    // Пустая ячейка, помещаем транспорт сюда и выходим
-                    totalTransportCount++;
-                    switch (userInput) {
-                    case 1: {
-                        transport[i] = new BootsAT();
-                        break;
-                    }
-                    case 2: {
-                        transport[i] = new Broom();
-                        break;
-                    }
-                    case 3: {
-                        transport[i] = new Camel();
-                        break;
-                    }
-                    case 4: {
-                        transport[i] = new Centaur();
-                        break;
-                    }
-                    case 5: {
-                        transport[i] = new Eagle();
-                        break;
-                    }
-                    case 6: {
-                        transport[i] = new FastCamel();
-                        break;
-                    }
-                    case 7: {
-                        transport[i] = new MagicCarpet();
-                        break;
-                    }
-                    default:
-                        break;
-                    }
-                    std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << ") успешно зарегистрирован.\n";
+                    std::cout << "Зарегистрированы все транспортные средства.\n";
                     break;
                 }
-
             }
-                        
-            printRegisteredTransport(transport); // Вывод списка ТС.
-            std::cout << std::endl;
-
-            if (transport[6] != 0) // Проверяем заполнен ли массив ТС полностью.
+            else if (userInput == 0) // Проверяем условия выхода из регистрации ТС
             {
-                std::cout << "Зарегистрированы все транспортные средства.\n";
-                break;
+                // Проверяем если хотя бы 2 элемента в массиве.
+                if (transport[1] != 0)
+                {
+                    // В массиве 2 элемента и более, выходим.
+                    break;
+                }
+                else
+                {
+                    std::cout << "Должно быть зарегистрировано хотя бы 2 транспортных средства.\n";
+                }
+            }
+            else
+            {
+                std::cout << "Неверный ввод, попробуйте еще раз." << std::endl;
             }
         }
-        else if (userInput == 0) // Проверяем условия выхода из регистрации ТС
+
+        system("cls");
+        std::cout << "Результаты гонки:\n";
+
+
+        for (int i = 0; i < totalTransportCount; i++) { // Устанавливаем дистанцию для всех зарегистрированных ТС.
+            transport[i]->setDistance(distance);
+        }
+
+        bool swapped = false;
+
+        do
         {
-            // Проверяем если хотя бы 2 элемента в массиве.
-            if (transport[1] != 0)
+            swapped = false;
+            for (int i = 0; i < (totalTransportCount - 1); i++)
             {
-                // В массиве 2 элемента и более, выходим.
+                if (transport[i + 1]->getTotalRaceTime() < transport[i]->getTotalRaceTime())
+                {
+                    std::swap(transport[i + 1], transport[i]);
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+
+        for (int i = 0; i < totalTransportCount; i++) {
+            transport[i]->setDistance(distance);
+            std::cout << (i + 1) << ". " << transport[i]->getName() << ". Время: " << transport[i]->getTotalRaceTime();
+            std::cout << "     (тип " << transport[i]->getType() << "). " << std::endl;
+        }
+
+        while (true)
+        {
+            std::cout << std::endl;
+            std::cout << "1. Провести еще одну гонку\n";
+            std::cout << "2. Выйти\n";
+
+            std::cin >> userInput;
+
+            if (userInput == 1)
+            {
+                break;
+            }
+            else if (userInput == 2)
+            {
+                gameContinue = false;
                 break;
             }
             else
             {
-                std::cout << "Должно быть зарегистрировано хотя бы 2 транспортных средства.\n";
+                std::cout << "Неверный ввод, попробуйте еще раз.\n";
             }
         }
-        else
-        {
-            std::cout << "Неверный ввод, попробуйте еще раз." << std::endl;
-        }
-    }
-
-    std::cout << "// Конечный результат после всех выборов.\n";
-
-
-    for (int i = 0; i < totalTransportCount; i++) { // Устанавливаем дистанцию для всех зарегистрированных ТС.
-            transport[i]->setDistance(distance);
-    }
- 
-    bool swapped = false;
-
-    do
-    {
-        swapped = false;
-        for (int i = 0; i < (totalTransportCount - 1); i++)
-        {
-            if (transport[i + 1]->getTotalRaceTime() < transport[i]->getTotalRaceTime())
-            {
-                std::swap(transport[i + 1], transport[i]);
-                swapped = true;
-            }
-        }
-    } while (swapped);
-
-    for (int i = 0; i < totalTransportCount; i++) {
-            transport[i]->setDistance(distance);
-            std::cout << (i + 1) << ". " << transport[i]->getName() << ". Время: " << transport[i]->getTotalRaceTime();
-            std::cout << "     (тип " << transport[i]->getType() << "). " << std::endl;
     }
 
     // TODO очистить массив с объектами
