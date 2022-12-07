@@ -46,18 +46,33 @@ int main()
 
     // Общие данные
     int userInput = 0;
-    int distance = 0;
+    int distance = 0; // TODO Только положительное число
     int totalTransportCount = 0;
+    int raceType;
     bool gameContinue = true;
 
+    std::cout << "Добро пожаловать в гоночный симулятор!\n";
     while (gameContinue == true)
     {
 
         //std::cout << "Укажите длину дистанции (должна быть положительна): ";
         //std::cin >> distance;
+        // TODO Сделать проверку на то что число положительное.
         distance = 4500;
         // TODO Сделать выбор типа гонки
-        std::cout << "Гонка для TODO транспорта. Растояние: " << distance << std::endl;
+        raceType = 0;
+        while (true)
+        {
+            std::cout << "1. Гонка для наземного транспорта\n";
+            std::cout << "2. Гонка для воздушного транспорта\n";
+            std::cout << "3. Гонка для наземного и воздушного транспорта\n";
+            std::cin >> raceType;
+            if (raceType > 0 && raceType < 4)
+            {
+                break;
+            }
+        }
+        std::cout << "Гонка для TODO (тип " << raceType << ") транспорта.Растояние: " << distance << std::endl;
 
         Transport** transport = new Transport * [7] {};
         totalTransportCount = 0;
@@ -68,67 +83,72 @@ int main()
             std::cout << "Выберите траспорт или 0 для окончания процесса регистрации: ";
             std::cin >> userInput;
             system("cls");
-            if (userInput >= 1 && userInput <= 7) // Проверка корректности вида ТС
+            if (userInput >= 1 && userInput <= 7) // Проверка корректности ввода типа ТС
             {
-                for (int i = 0; i < 7; i++) { // Цикл для проверки что такое ТС уже зарегистрировано, если нет, добавляем ТС в массив
-                    if (transport[i] != 0)
-                    {
-                        if (transport[i]->getId() == userInput)
+                // Проверка типа ТС для регистрации
+                if ((raceType == 1 && userInput != 2 && userInput != 5 && userInput != 7) || (raceType == 2 && (userInput == 2 || userInput == 5 || userInput == 7)) || raceType == 3)
+                {
+                    for (int i = 0; i < 7; i++) { // Цикл для проверки что такое ТС уже зарегистрировано, если нет, добавляем ТС в массив
+                        if (transport[i] != 0)
                         {
-                            // Такой транспорт есть, выходим
-                            std::cout << transport[i]->getName() << " уже зарегистрирован.\n";
+                            if (transport[i]->getId() == userInput)
+                            {
+                                // Такой транспорт есть, выходим
+                                std::cout << transport[i]->getName() << " уже зарегистрирован.\n";
+                                break;
+                            }
+                        }
+                        else if (transport[i] == 0)
+                        {
+                            // Пустая ячейка, помещаем транспорт сюда и выходим
+                            totalTransportCount++;
+                            switch (userInput) {
+                            case 1: {
+                                transport[i] = new BootsAT();
+                                break;
+                            }
+                            case 2: {
+                                transport[i] = new Broom();
+                                break;
+                            }
+                            case 3: {
+                                transport[i] = new Camel();
+                                break;
+                            }
+                            case 4: {
+                                transport[i] = new Centaur();
+                                break;
+                            }
+                            case 5: {
+                                transport[i] = new Eagle();
+                                break;
+                            }
+                            case 6: {
+                                transport[i] = new FastCamel();
+                                break;
+                            }
+                            case 7: {
+                                transport[i] = new MagicCarpet();
+                                break;
+                            }
+                            default:
+                                break;
+                            }
+                            std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << ") успешно зарегистрирован.\n";
                             break;
                         }
+
                     }
-                    else if (transport[i] == 0)
+
+                    printRegisteredTransport(transport); // Вывод списка ТС.
+                    std::cout << std::endl;
+
+                    // TODO Сделать проверки для 3 типов транспорта
+                    if (transport[6] != 0) // Проверяем заполнен ли массив ТС полностью.
                     {
-                        // Пустая ячейка, помещаем транспорт сюда и выходим
-                        totalTransportCount++;
-                        switch (userInput) {
-                        case 1: {
-                            transport[i] = new BootsAT();
-                            break;
-                        }
-                        case 2: {
-                            transport[i] = new Broom();
-                            break;
-                        }
-                        case 3: {
-                            transport[i] = new Camel();
-                            break;
-                        }
-                        case 4: {
-                            transport[i] = new Centaur();
-                            break;
-                        }
-                        case 5: {
-                            transport[i] = new Eagle();
-                            break;
-                        }
-                        case 6: {
-                            transport[i] = new FastCamel();
-                            break;
-                        }
-                        case 7: {
-                            transport[i] = new MagicCarpet();
-                            break;
-                        }
-                        default:
-                            break;
-                        }
-                        std::cout << transport[i]->getName() << "(тип " << transport[i]->getType() << ") успешно зарегистрирован.\n";
+                        std::cout << "Зарегистрированы все транспортные средства.\n";
                         break;
                     }
-
-                }
-
-                printRegisteredTransport(transport); // Вывод списка ТС.
-                std::cout << std::endl;
-
-                if (transport[6] != 0) // Проверяем заполнен ли массив ТС полностью.
-                {
-                    std::cout << "Зарегистрированы все транспортные средства.\n";
-                    break;
                 }
             }
             else if (userInput == 0) // Проверяем условия выхода из регистрации ТС
